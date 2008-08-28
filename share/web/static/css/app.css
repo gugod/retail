@@ -1,0 +1,98 @@
+.buttons {
+    float: left;
+    margin-left: 50%;
+}
+
+.buttons {
+    position: relative;
+    left: 50%;
+    margin-left: 0;
+}
+
+.buttons ul {  
+    position: relative;
+    margin-left: -50%;
+
+    list-style: none;
+}
+
+.buttons li {
+    display: block;
+    float: left;
+    margin-right: 15px;
+}
+
+.buttons a.huge.button {
+    display: block;
+    text-align: center;
+    font-size: 4em;
+
+    color: black;
+    background: orange;
+
+    padding: 0.3em;
+    -moz-border-radius: 0.3em;
+    border: 5px solid #333;
+
+    text-decoration: none;
+}
+
+.buttons a.huge.button:hover {
+    background: darkorange;
+    color: white;
+    border: 5px solid #000;
+}
+
+div.warning {
+    top:0;
+    left: 0;
+    width: 13em;
+    border: 1px solid black;
+    font-size: 0.8em;
+}
+
+div#navigation {
+    width: 250px;
+    position: absolute;
+    top: 10px;
+    margin-left: 50%;
+    background: #fff;
+}
+div#navigation ul.menu {
+    border: none;
+    background: none;
+    margin-left: -50%;
+}
+div#navigation ul.menu li {
+    float: left;
+    margin-right: 1.2em;
+    border: none;
+}
+div#navigation ul.menu li a {
+    border: none;
+    background: #fff;
+    color: #000;
+    font-size: 1.5em;
+}
+
+div#navigation ul.menu li.active a:link,
+div#navigation ul.menu li.active a:visited,
+div#navigation ul.menu li.active a:hover,
+div#navigation ul.menu li a:hover {
+    background: #fff;
+    color: #911;
+}
+
+#salutation {
+    display: none;
+}
+
+#content {
+    width: 950px;
+    margin: 50px auto 0 auto;
+}
+
+h1.title {
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid #eee;
+}

@@ -1,0 +1,33 @@
+
+^ Actions
+
+^ Views
+
+* /
+* /warehouse
+* /sale
+* /buy
+** shows a list of Providers
+** shows "Create a New Provider" region form.
+
+^ Models
+
+* Provider
+** name, telephone, address, description.
+** has many ProviderSellables
+
+* Customer
+** name, telephone, address, description.
+
+* Sellable
+** name
+** has many providers
+
+* ProviderSellable
+** provider_id
+** sellable_id
+** stock_number 品番
+** wholesale_price 上代
+** retail_price 下代
+
+

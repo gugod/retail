@@ -16,36 +16,25 @@ framework:
     User: ''
     Version: 0.0.1
   DevelMode: 1
-  L10N: 
+  L10N:
     PoDir: share/po
+    AllowedLang:
+      - en
+      - zh_tw
   LogLevel: INFO
   Mailer: Sendmail
   MailerArgs: []
 
-  Plugins: 
-    - 
-      LetMe: {}
-
-    - 
-      SkeletonApp: {}
-
-    - 
-      REST: {}
-
-    - 
-      Halo: {}
-
-    - 
-      ErrorTemplates: {}
-
-    - 
-      OnlineDocs: {}
-
-    - 
-      CompressedCSSandJS: {}
-
-    - 
-      AdminUI: {}
+  Plugins:
+    - I18N: {}
+    - LetMe: {}
+    - SkeletonApp: {}
+    - REST: {}
+    # - Halo: {}
+    - ErrorTemplates: {}
+    - OnlineDocs: {}
+    - CompressedCSSandJS: {}
+    - AdminUI: {}
 
   PubSub: 
     Backend: Memcached
