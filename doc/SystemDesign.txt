@@ -4,7 +4,7 @@
 ^ Views
 
 * /
-* /warehouse
+* /stock
 * /sale
 * /buy
 ** shows a list of Providers
@@ -14,20 +14,19 @@
 
 * Provider
 ** name, telephone, address, description.
-** has many ProviderSellables
+** has many ProviderCommodity
 
 * Customer
 ** name, telephone, address, description.
 
-* Sellable
+* Commodity
 ** name
-** has many providers
+** has many providers through ProviderCommodity
 
-* ProviderSellable
+* ProviderCommodity
 ** provider_id
-** sellable_id
+** commodity_id
 ** stock_number 品番
 ** wholesale_price 上代
 ** retail_price 下代
-
 
