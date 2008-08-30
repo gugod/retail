@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Jifty::Test tests => 3;
-use Retail::Helpers;
+use Jifty::ModelHelpers;
 use Text::Greeking;
 
 my $tg = Text::Greeking->new;

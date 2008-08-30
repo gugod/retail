@@ -5,7 +5,7 @@ use utf8;
 use Jifty::View::Declare -base;
 use Jifty::View::Declare::CRUD;
 
-use Retail::Helpers;
+use Jifty::ModelHelpers;
 
 template '/' => page {
     div {
