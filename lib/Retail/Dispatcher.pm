@@ -3,10 +3,10 @@ use strict;
 use warnings;
 use utf8;
 use Jifty::Dispatcher -base;
+use Jifty::ModelHelpers;
 
 on GET '/buy/providers/*' => run {
-    my $p = Jifty->app_class(Model => "Provider")->new;
-    $p->load($1);
+    my $p = Provider($1);
 
     set provider => $p;
     show("/buy/providers");
