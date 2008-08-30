@@ -5,9 +5,7 @@ use utf8;
 use Jifty::View::Declare -base;
 use Jifty::View::Declare::CRUD;
 
-sub M {
-    Jifty->app_class(Model => $_[0])->new
-}
+use Retail::Helpers;
 
 template '/' => page {
     div {
@@ -33,9 +31,7 @@ template '/buy' => page {
     div {
         class is "providers";
 
-        my $pc = Jifty->app_class(Model => "ProviderCollection")->new;
-        $pc->unlimit;
-
+        my $pc = ProviderCollection;
         ul {
             while (my $p = $pc->next) {
                 li {
