@@ -5,11 +5,15 @@ use utf8;
 use Jifty::Dispatcher -base;
 use Jifty::ModelHelpers;
 
-on GET '/buy/providers/*' => run {
+on GET '/buy' => run {
+    redirect("/provider");
+};
+
+on GET '/provider/*/buy' => run {
     my $p = Provider($1);
 
     set provider => $p;
-    show("/buy/providers");
+    show("/provider/buy");
 };
 
 1;

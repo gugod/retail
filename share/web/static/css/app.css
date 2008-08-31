@@ -96,3 +96,16 @@ h1.title {
     padding-bottom: 0.3em;
     border-bottom: 2px solid #eee;
 }
+
+/* CRUD List */
+div.list div.controls {
+    float: left;
+    margin: 5px 15px 0 0;
+}
+
+div.list div.controls a {
+    display: block;
+    margin: 0 15px 0.5em 0;
+    padding: 0;
+}
+/* */

@@ -6,7 +6,7 @@ our @ISA = qw(Exporter);
 our @EXPORT;
 our $VERSION = "0.01";
 
-{
+if (@EXPORT == 0) {
     require Jifty::Schema;
     my @models = map { s/.*::(.+)$/$1/;  $_; } Jifty::Schema->new->models;
 
@@ -31,8 +31,8 @@ our $VERSION = "0.01";
                 if (@args == 1) {
                     $obj->load($args[0]);
                 }
-                if (@args % 2 == 0) {
-                    $obj->load_from_cols($args[0]);
+                elsif (@args % 2 == 0) {
+                    $obj->load_by_cols(@args);
                 }
                 return $obj;
             };
