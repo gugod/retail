@@ -108,4 +108,12 @@ div.list div.controls a {
     margin: 0 15px 0.5em 0;
     padding: 0;
 }
+
+div.list .commodity.pic {
+    float:left;
+    width: 80px;
+    height: 80px;
+    overflow:hidden;
+    margin-right: 15px;
+}
 /* */

@@ -16,5 +16,10 @@ on GET '/provider/*/buy' => run {
     show("/provider/buy");
 };
 
+on GET '/commodity/id/#/pic' => run {
+    set id => $1;
+    show "/commodity/pic";
+};
+
 1;
 

@@ -9,9 +9,8 @@ use Retail::ViewHelpers;
 
 use Retail::View::Provider;
 
-alias Jifty::View::Declare::CRUD under "/commodity", { object_type => "Commodity" };
-
 Jifty::View::Declare::CRUD->mount_view("Provider");
+Jifty::View::Declare::CRUD->mount_view("Commodity");
 
 template '/' => page {
     div {
