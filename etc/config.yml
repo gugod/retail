@@ -48,6 +48,8 @@ framework:
       - Jifty::View::Declare::Handler
       - Jifty::View::Mason::Handler
   Web: 
+    SessionClass: Jifty::Web::Session::ClientSide
+    SessionSecret: '9jv3$9*!ufz239#$^'
     BaseURL: http://localhost
     DataDir: var/mason
     Globals: []
