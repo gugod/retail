@@ -1,6 +1,6 @@
 --- 
 framework: 
-  AdminMode: 1
+  AdminMode: 0
   ApplicationClass: Retail
   ApplicationName: Retail
   ApplicationUUID: 7BA46032-74DB-11DD-A027-AFC80B18BD64
