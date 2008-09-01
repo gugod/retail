@@ -31,7 +31,7 @@ if (@EXPORT == 0) {
                 if (@args == 1) {
                     $obj->load($args[0]);
                 }
-                elsif (@args % 2 == 0) {
+                elsif (@args && @args % 2 == 0) {
                     $obj->load_by_cols(@args);
                 }
                 return $obj;

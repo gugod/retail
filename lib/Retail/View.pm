@@ -17,7 +17,7 @@ template '/' => page {
         class is "buttons";
 
         ul {
-            for (qw(buy sale stock)) {
+            for (qw(supply sale stock)) {
                 li {
                     hyperlink(
                         url => "/$_",

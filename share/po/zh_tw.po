@@ -15,23 +15,44 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/Retail/View.pm:53
-msgid "Add new providers"
-msgstr ""
-
-#: lib/Retail/View.pm:31
+#:
 msgid "Buy"
 msgstr "進貨"
 
-#: lib/Retail/View.pm:68
+#:
+msgid "Supply"
+msgstr "進貨"
+
+#: lib/Retail/View/Commodity.pm:54
 #. ($provider->name)
 msgid "Buy from %1"
 msgstr "自%1進貨"
 
-#: lib/Retail/View.pm:58
+#:
+msgid "Buy from here"
+msgstr "自此處進貨"
+
+#: lib/Retail/View/Commodity.pm:56
+msgid "Commodities"
+msgstr "商品"
+
+#:
+msgid "Manage commodities"
+msgstr "管理商品"
+
+#: lib/Retail/View.pm:34
 msgid "Sale"
 msgstr "銷貨"
 
-#: lib/Retail/View.pm:62
+#: lib/Retail/View.pm:38
 msgid "Stock"
 msgstr "存貨"
+
+#: lib/Retail/View/Provider.pm:52
+#. ($provider->name)
+msgid "Supply from %1"
+msgstr "自%1進貨"
+
+#: lib/Retail/View/Provider.pm:39
+msgid "Supply from here"
+msgstr "自此處進貨"

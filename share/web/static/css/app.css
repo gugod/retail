@@ -117,3 +117,15 @@ div.list .commodity.pic {
     margin-right: 15px;
 }
 /* */
+
+table.list {
+    width: 100%;
+    margin: 1em 0;
+    table-layout: fixed;
+    border-collapsed: collapsed;
+}
+
+table.list td {
+    border: 1px solid #aaa;
+    padding: 0.5em;
+}
