@@ -10,14 +10,29 @@ on GET '/supply' => run {
 };
 
 on "/provider/#/supply" => run {
-    my $supply_id = Supply->create(provider => $1);
+    my $supply_id;
+    my $c = SupplyCollection(provider => $1, draft => 1);
+
+    if ($c->count >= 1) {
+        $supply_id = $c->first->id;
+    }
+    else {
+        $supply_id = Supply->create(provider => $1);
+    }
 
     redirect "/provider/$1/supply/$supply_id";
 };
 
 on "/provider/#/supply/#" => run {
+
+    my $supply = Supply($2);
+    unless ($supply->id) {
+        redirect "/provider"
+    }
+
     set provider => Provider($1);
-    set supply => Supply($2);
+    set supply => $supply;
+
     show "/provider/supply";
 };
 

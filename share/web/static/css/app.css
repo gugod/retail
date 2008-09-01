@@ -129,3 +129,9 @@ table.list td {
     border: 1px solid #aaa;
     padding: 0.5em;
 }
+
+table.list span.commodity.name {
+    display: block;
+    text-align: center;
+}
+

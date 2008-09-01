@@ -20,6 +20,10 @@ if (@EXPORT == 0) {
                     $obj->unlimit;
                 }
                 elsif (@args % 2 == 0) {
+                    my %limits = @args;
+                    while( my ($col, $val) = each %limits) {
+                        $obj->limit(column => $col, value => $val);
+                    }
                 }
                 return $obj;
             }
