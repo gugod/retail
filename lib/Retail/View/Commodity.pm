@@ -1,6 +1,6 @@
 package Retail::View::Commodity;
 use strict;
-use base 'Jifty::View::Declare::CRUD';
+use base 'Retail::View::CRUD';
 use Jifty::View::Declare -base;
 
 use utf8;
@@ -47,7 +47,6 @@ template 'view' => sub {
 
     hr {};
 
-    outs_raw( Jifty->web->return( label => _("Back") ) );
 };
 
 use Imager;

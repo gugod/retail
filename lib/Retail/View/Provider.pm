@@ -1,6 +1,6 @@
 package Retail::View::Provider;
 use strict;
-use base 'Jifty::View::Declare::CRUD';
+use base 'Retail::View::CRUD';
 use Jifty::View::Declare -base;
 
 use utf8;

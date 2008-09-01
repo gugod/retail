@@ -55,13 +55,13 @@ div#navigation {
     width: 250px;
     position: absolute;
     top: 10px;
-    margin-left: 50%;
+    left: 10px;
     background: #fff;
+    font-size: 1.4em;
 }
 div#navigation ul.menu {
     border: none;
     background: none;
-    margin-left: -50%;
 }
 div#navigation ul.menu li {
     float: left;
@@ -135,3 +135,12 @@ table.list span.commodity.name {
     text-align: center;
 }
 
+
+/* */
+div#region-Provider-list-new_item,
+div#region-Commodity-list-new_item {
+    margin: 5px 0 15px 0;
+    padding: 15px;
+    border: 2px solid #000;
+    -moz-border-radius: 5px;
+}
