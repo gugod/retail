@@ -26,7 +26,15 @@
 * ProviderCommodity
 ** provider_id
 ** commodity_id
-** stock_number 品番
+** stock_number    品番 (寫在丹波屋發票上的第一個號碼）
 ** wholesale_price 上代
-** retail_price 下代
+** retail_price    下代
 
+* Supply
+** created_at (auto)
+** provider_id
+** (has many) SupplyCommodity
+*** commodity_id
+*** quantity
+*** price
+*** retail price
