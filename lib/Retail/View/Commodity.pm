@@ -49,20 +49,10 @@ template 'view' => sub {
 
 };
 
-use Imager;
-
 template "pic" => sub {
     my $id = get("id");
     my $record = Commodity($id);
-
-#     my $img = Imager->new();
-#     $img->read(data => $record->pic);
-#     my $data;
-#     $img->scale(xpixels => 80, ypixels => 80)->write(type => "png", data => \$data);
-
     Jifty->handler->apache->content_type("image/png");
-#    outs_raw($data);
-
     outs_raw($record->pic);
 };
 
