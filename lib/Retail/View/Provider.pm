@@ -56,15 +56,30 @@ template "supply" => page {
     div {
         class is "controls clearfix";
 
-        my $action = $supply->as_delete_action;
         form {
-            render_action($action);
+            render_action($supply->as_delete_action);
             form_submit(
                 label => _("Discard"),
                 onclick => {
                     confirm => _("This supply ticket will be removed cannot be reverted. Are you sure ?")
                 }
             );
+        };
+
+        form {
+            my $action = $supply->as_update_action;
+            $action->hidden(draft => 0);
+            $action->hidden('provider');
+            render_action($action);
+            form_submit(
+                label => _("Finish"),
+                onclick => {
+                    confirm => _("Save this ticket will make it not-editable again. Are you sure ?")
+                }
+            );
+        };
+
+        form {
             div {
                 class is "submit_button";
                 tangent(
