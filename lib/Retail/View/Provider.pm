@@ -56,16 +56,26 @@ template "supply" => page {
     div {
         class is "controls clearfix";
 
+        my $action = $supply->as_delete_action;
         form {
-            render_action( $supply->as_delete_action);
+            render_action($action);
             form_submit(
-                as_link => 1,
-                label => _("Discard this supply ticket"),
-                confirm => _("This supply ticket will be removed cannot be reverted. Are you sure ?")
+                label => _("Discard"),
+                onclick => {
+                    confirm => _("This supply ticket will be removed cannot be reverted. Are you sure ?")
+                }
             );
+            div {
+                class is "submit_button";
+                tangent(
+                    label => _("Manage Commodities"),
+                    as_button => 1,
+                    url => "/commodity",
+                    tooltip => _("Go add a new commodity if you don't see it in here")
+                );
+            };
         };
 
-        tangent(label => _("Manage Commodities"), url => "/commodity");
     };
 
     div {

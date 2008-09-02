@@ -155,22 +155,10 @@ div.controls {
     margin: 0 0 1em 0;
 }
 
-div.controls a {
-    display: block;
-    color: #555;
-    text-decoration: none;
+div.controls div.submit_button {
     float: left;
-    font-size: 1.2em;
-    padding: 0 1.5em;
     margin-right: 15px;
-
-    background: #eee;
-    border: 1px solid #aaa;
-}
-
-div.controls a:hover {
-    color:#000;
-    background: #ddd;
+    clear: none;
 }
 
 div.clearfix:after {
