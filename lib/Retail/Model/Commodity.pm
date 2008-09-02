@@ -13,19 +13,13 @@ use Retail::Record schema {
         render as "Upload";
 };
 
-use Imager;
+sub before_create {
+    
+}
 
 sub before_set_pic {
     my ($self, $params) = @_;
-
-    my $img = Imager->new();
-    if ($img->read(data => $params->{value})) {
-        my $data;
-        $img->scale(xpixels => 80, ypixels => 80, type => 'min')->write(type => "png", data => \$data);
-        $params->{value} = $data;
-
-        return 1;
-    }
+    $params->{value} = $self->pic_rescale($params->{value});
 }
 
 sub quantities_in_stock {
@@ -33,6 +27,22 @@ sub quantities_in_stock {
 
     # XXX
     return 1;
+}
+
+use Imager;
+
+sub pic_rescale {
+    my ($self, $data) = @_;
+    my $img = Imager->new();
+    if ($img->read(data => $data)) {
+        $img->scale(xpixels => 80, ypixels => 80, type => 'min')->write(type => "png", data => \$data);
+    }
+    else {
+        $img = Imager->new(xsize => 80, ysize => 80);
+        $img->flood_fill(x => 1, y => 1, color => "grey");
+        $img->write(type => "png", data => \$data);
+    }
+    return $data;
 }
 
 1;
