@@ -14,7 +14,11 @@ use Retail::Record schema {
 };
 
 sub before_create {
-    
+    my ($self, $args) = @_;
+    if(defined($args->{pic})) {
+        $args->{pic} = $self->pic_rescale($args->{pic});
+    }
+    return 1;
 }
 
 sub before_set_pic {
