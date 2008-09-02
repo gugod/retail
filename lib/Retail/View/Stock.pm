@@ -5,7 +5,7 @@ use strict;
 use utf8;
 
 use Retail::ViewHelpers;
-use Jifty::ModelHelpers;
+use JiftyX::ModelHelpers;
 
 template 'index.html' => page {
     title is _("Stock");

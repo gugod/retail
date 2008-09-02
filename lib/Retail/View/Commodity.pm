@@ -6,7 +6,7 @@ use Jifty::View::Declare -base;
 use utf8;
 
 use Retail::ViewHelpers;
-use Jifty::ModelHelpers;
+use JiftyX::ModelHelpers;
 
 sub record_type { "Commodity" }
 

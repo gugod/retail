@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use utf8;
 use Jifty::Dispatcher -base;
-use Jifty::ModelHelpers;
+use JiftyX::ModelHelpers;
 
 on GET '/supply' => run {
     redirect("/provider");

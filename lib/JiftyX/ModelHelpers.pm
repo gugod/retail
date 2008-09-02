@@ -1,4 +1,4 @@
-package Jifty::ModelHelpers;
+package JiftyX::ModelHelpers;
 use strict;
 use Exporter;
 

@@ -6,7 +6,7 @@ use Jifty::View::Declare -base;
 use utf8;
 
 use Retail::ViewHelpers;
-use Jifty::ModelHelpers qw(Provider Supply SupplyCommodityCollection );
+use JiftyX::ModelHelpers qw(Provider Supply SupplyCommodityCollection );
 
 sub record_type { "Provider" }
 
