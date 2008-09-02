@@ -15,16 +15,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: lib/Retail/View/Provider.pm:104
+msgid "Add"
+msgstr "新增"
+
+#: lib/Retail/Dispatcher.pm:10 lib/Retail/Dispatcher.pm:13
+msgid "Back"
+msgstr "回上一頁"
+
 #:
 msgid "Buy"
 msgstr "進貨"
 
 #:
-msgid "Supply"
-msgstr "進貨"
-
-#: lib/Retail/View/Commodity.pm:54
-#. ($provider->name)
 msgid "Buy from %1"
 msgstr "自%1進貨"
 
@@ -32,27 +35,83 @@ msgstr "自%1進貨"
 msgid "Buy from here"
 msgstr "自此處進貨"
 
-#: lib/Retail/View/Commodity.pm:56
+#:
 msgid "Commodities"
 msgstr "商品"
+
+#: lib/Retail/View/Provider.pm:62
+msgid "Discard"
+msgstr "捨棄"
+
+#: lib/Retail/View/Provider.pm:75
+msgid "Finish"
+msgstr "結束"
+
+#: lib/Retail/View/Provider.pm:89
+msgid "Go add a new commodity if you don't see it in here"
+msgstr "如果沒看見商品的話，請點擊此前去增加新的商品。"
+
+#: lib/Retail/View/Stock.pm:25
+msgid "In stock"
+msgstr "庫存"
+
+#: lib/Retail/View/Provider.pm:86
+msgid "Manage Commodities"
+msgstr "管理商品"
 
 #:
 msgid "Manage commodities"
 msgstr "管理商品"
 
-#: lib/Retail/View.pm:34
+#: lib/Retail/View/Provider.pm:115
+msgid "Name"
+msgstr "名稱"
+
+#: lib/Retail/View/Stock.pm:24
+msgid "Picture and Name"
+msgstr "圖片、名稱"
+
+#: lib/Retail/View/Provider.pm:117
+msgid "Price"
+msgstr "價格"
+
+#: lib/Retail/View/Provider.pm:116
+msgid "Quantity"
+msgstr "數量"
+
+#: lib/Retail/View.pm:38
 msgid "Sale"
 msgstr "銷貨"
 
-#: lib/Retail/View.pm:38
+#: lib/Retail/View/Provider.pm:77
+msgid "Save this ticket will make it not-editable again. Are you sure ?"
+msgstr "儲存之後便無法再修改此單據，確定嗎？"
+
+#: lib/Retail/View/Stock.pm:11
 msgid "Stock"
 msgstr "存貨"
 
-#: lib/Retail/View/Provider.pm:52
+#: lib/Retail/View/Stock.pm:34
+msgid "Stockless"
+msgstr "無存貨"
+
+#: lib/Retail/View/Provider.pm:118
+msgid "SubTotal"
+msgstr "小記"
+
+#:
+msgid "Supply"
+msgstr "進貨"
+
+#: lib/Retail/View/Provider.pm:54
 #. ($provider->name)
 msgid "Supply from %1"
 msgstr "自%1進貨"
 
-#: lib/Retail/View/Provider.pm:39
+#: lib/Retail/View/Provider.pm:40
 msgid "Supply from here"
 msgstr "自此處進貨"
+
+#: lib/Retail/View/Provider.pm:64
+msgid "This supply ticket will be removed cannot be reverted. Are you sure ?"
+msgstr "此單據將會被永久刪除並且無法回復。確定嗎？"
