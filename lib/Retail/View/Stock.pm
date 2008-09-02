@@ -18,7 +18,7 @@ template 'commodities' => sub {
 
         my $c = CommodityCollection;
         table {
-            class is "list";
+            class is "stock list";
 
             row {
                 cell { _("Picture and Name") };
@@ -31,7 +31,10 @@ template 'commodities' => sub {
                         span { $commodity->name };
                     };
                     cell {
-                        $commodity->quantities_in_stock || _("Stockless");
+                        span {
+                            class is "quantities"
+                            $commodity->quantities_in_stock || _("Stockless");
+                        };
                     };
                 };
             }

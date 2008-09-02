@@ -167,3 +167,11 @@ div.clearfix:after {
     clear: both;
 }
 
+table.list td img {
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+table.stock.list {
+    font-size: 1.5em;
+}
