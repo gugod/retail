@@ -9,8 +9,12 @@ use Retail::ViewHelpers;
 
 use Retail::View::Provider;
 
+use Retail::View::Stock;
+
 Jifty::View::Declare::CRUD->mount_view("Provider");
 Jifty::View::Declare::CRUD->mount_view("Commodity");
+
+alias Retail::View::Stock under "/stock";
 
 template '/' => page {
     div {
@@ -32,11 +36,6 @@ template '/' => page {
 
 template 'sale' => page {
     title is _("Sale");
-};
-
-template 'stock' => page {
-    title is _("Stock");
-
 };
 
 1;

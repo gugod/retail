@@ -26,5 +26,12 @@ sub before_set_pic {
     }
 }
 
+sub quantities_in_stock {
+    my ($self) = @_;
+
+    # XXX
+    return 1;
+}
+
 1;
 
