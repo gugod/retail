@@ -98,7 +98,7 @@ template "supply" => page {
 
         form {
             my $action = new_action(class => "CreateSupplyCommodity");
-            $action->argument_value(supply => $supply->id);
+            $action->hidden(supply => $supply->id);
 
             render_action($action);
             form_submit(label => _("Add"));
