@@ -30,10 +30,31 @@ sub before_set_pic {
     $params->{value} = $self->pic_rescale($params->{value});
 }
 
+sub nondraft_supplies {
+    my ($self) = @_;
+    my $supplies = $self->supplies;
+
+    # I always need to guess how to join and limit in Jifty::DBI::Collection. :(
+    my $a = $supplies->join(
+        type => "left",
+        column1 => "supply",
+        table2 => "supplies",
+        column2 => "id"
+    );
+    $supplies->limit(
+        alias => $a,
+        column => "draft",
+        value => 0
+    );
+
+    return $supplies;
+}
+
 sub quantities_in_stock {
     my ($self) = @_;
     my $q = 0;
-    my $supplies = $self->supplies;
+    my $supplies = $self->nondraft_supplies;
+
     while (my $s = $supplies->next) {
         $q += $s->quantity;
     }
