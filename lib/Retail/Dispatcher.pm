@@ -18,6 +18,10 @@ on GET '/supply' => run {
     redirect("/provider");
 };
 
+on GET '/sale' => run {
+    redirect("/consumer");
+};
+
 on "/provider/#/supply" => run {
     my $supply_id;
     my $c = SupplyCollection(provider => $1, draft => 1);
@@ -33,7 +37,6 @@ on "/provider/#/supply" => run {
 };
 
 on "/provider/#/supply/#" => run {
-
     my $supply = Supply($2);
     unless ($supply->id) {
         redirect "/provider"
@@ -43,6 +46,32 @@ on "/provider/#/supply/#" => run {
     set supply => $supply;
 
     show "/provider/supply";
+};
+
+on '/consumer/#/sale' => run {
+    my $id;
+    my $c = SaleCollection(consumer => $1, draft => 1);
+
+    if ($c->count >= 1) {
+        $id = $c->first->id;
+    }
+    else {
+        $id = Sale->create(consumer => $1);
+    }
+
+    redirect "/consumer/$1/sale/$id";
+};
+
+on '/consumer/#/sale/#' => run {
+    my $sale = Sale($2);
+    unless ($sale->id) {
+        redirect "/consumer"
+    }
+
+    set consumer => Consumer($1);
+    set sale => $sale;
+
+    show "/consumer/sale";
 };
 
 on GET '/commodity/id/#/pic' => run {

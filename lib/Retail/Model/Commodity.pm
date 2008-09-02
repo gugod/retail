@@ -15,6 +15,8 @@ use Retail::Record schema {
     column supplies =>
         references Retail::Model::SupplyCommodityCollection by 'commodity';
 
+    column sales =>
+        references Retail::Model::SaleCommodityCollection by 'commodity';
 };
 
 sub before_create {
@@ -50,6 +52,25 @@ sub nondraft_supplies {
     return $supplies;
 }
 
+sub nondraft_sales {
+    my ($self) = @_;
+    my $s = $self->sales;
+
+    my $a = $s->join(
+        type => "left",
+        column1 => "sale",
+        table2 => "sales",
+        column2 => "id"
+    );
+    $s->limit(
+        alias => $a,
+        column => "draft",
+        value => 0
+    );
+
+    return $s;
+}
+
 sub quantities_in_stock {
     my ($self) = @_;
     my $q = 0;
@@ -57,6 +78,11 @@ sub quantities_in_stock {
 
     while (my $s = $supplies->next) {
         $q += $s->quantity;
+    }
+
+    my $sales = $self->nondraft_sales;
+    while (my $s = $sales->next) {
+        $q -= $s->quantity;
     }
 
     return $q;

@@ -21,8 +21,13 @@ sub providers {
     Provider->create(name => "good company");
 }
 
+sub consumers {
+    Consumer->create(name => "good consumer");
+}
+
 sub commodities {
     Commodity->create(name => "Hello Kitty A");
 }
+
 
 1;

@@ -4,15 +4,12 @@ use warnings;
 use utf8;
 use Jifty::View::Declare -base;
 use Jifty::View::Declare::CRUD;
-
 use Retail::ViewHelpers;
-
-use Retail::View::Provider;
-
 use Retail::View::Stock;
 
 Jifty::View::Declare::CRUD->mount_view("Provider");
 Jifty::View::Declare::CRUD->mount_view("Commodity");
+Jifty::View::Declare::CRUD->mount_view("Consumer");
 
 alias Retail::View::Stock under "/stock";
 
@@ -32,10 +29,6 @@ template '/' => page {
             }
         }
     }
-};
-
-template 'sale' => page {
-    title is _("Sale");
 };
 
 1;

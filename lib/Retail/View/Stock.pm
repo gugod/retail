@@ -32,7 +32,7 @@ template 'commodities' => sub {
                     };
                     cell {
                         span {
-                            class is "quantities"
+                            class is "quantities";
                             $commodity->quantities_in_stock || _("Stockless");
                         };
                     };

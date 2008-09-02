@@ -1,18 +1,19 @@
 use strict;
 use warnings;
 
-package Retail::Model::Supply;
+package Retail::Model::Sale;
 use Jifty::DBI::Schema;
 
 use Retail::Record schema {
-    column provider => references Retail::Model::Provider;
+    column consumer =>
+        references Retail::Model::Consumer;
 
     column draft =>
         type is 'boolean',
         default is 1;
 
     column commodities =>
-        references Retail::Model::SupplyCommodityCollection by 'supply';
+        references Retail::Model::SaleCommodityCollection by 'sale';
 
 };
 
@@ -24,6 +25,7 @@ sub before_delete {
     }
     return 1;
 }
+
 
 1;
 
