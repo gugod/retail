@@ -13,6 +13,8 @@ use Retail::Record schema {
         render as "Upload";
 };
 
+use Imager;
+
 sub before_set_pic {
     my ($self, $params) = @_;
 
