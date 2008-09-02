@@ -11,11 +11,20 @@ use Retail::Record schema {
     column pic =>
         type is "blob",
         render as "Upload";
-
-
 };
 
-# Your model-specific methods go here.
+sub before_set_pic {
+    my ($self, $params) = @_;
+
+    my $img = Imager->new();
+    if ($img->read(data => $params->{value})) {
+        my $data;
+        $img->scale(xpixels => 80, ypixels => 80, type => 'min')->write(type => "png", data => \$data);
+        $params->{value} = $data;
+
+        return 1;
+    }
+}
 
 1;
 
