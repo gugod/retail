@@ -54,9 +54,7 @@ template "supply" => page {
     title is _('Supply from %1', $provider->name);
 
     div {
-        class is "controls";
-
-        tangent(label => _("Manage Commodities"), url => "/commodity");
+        class is "controls clearfix";
 
         form {
             render_action( $supply->as_delete_action);
@@ -66,6 +64,8 @@ template "supply" => page {
                 confirm => _("This supply ticket will be removed cannot be reverted. Are you sure ?")
             );
         };
+
+        tangent(label => _("Manage Commodities"), url => "/commodity");
     };
 
     div {
