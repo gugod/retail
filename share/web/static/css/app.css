@@ -137,22 +137,16 @@ table.list span.commodity.name {
 
 
 /* CRUD style customization */
-div#region-Provider-list-new_item,
-div#region-Commodity-list-new_item {
-    margin: 5px 0 15px 0;
-    padding: 15px;
-    border: 2px solid #000;
-    -moz-border-radius: 5px;
-}
-
+div.crud.create.item.inline,
 div.crud.update.item.inline {
-    background: #f3f3ff;
+    background: #ccf;
     padding: 1em;
     font-size: 1.5em;
     border: 1px solid #eef;
     -moz-border-radius: 5px;
 }
 
+#region-Provider-list-new_item hr,
 div.crud.update.item.inline hr {
     visibility: hidden;
 }

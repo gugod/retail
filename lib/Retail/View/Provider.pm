@@ -61,6 +61,7 @@ template "supply" => page {
         form {
             render_action( $supply->as_delete_action);
             form_submit(
+                as_link => 1,
                 label => _("Discard this supply ticket"),
                 confirm => _("This supply ticket will be removed cannot be reverted. Are you sure ?")
             );
@@ -68,7 +69,7 @@ template "supply" => page {
     };
 
     div {
-        class is "inline";
+        class is "inline crud create item";
 
         form {
             my $action = new_action(class => "CreateSupplyCommodity");

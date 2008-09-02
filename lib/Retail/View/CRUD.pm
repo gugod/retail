@@ -9,6 +9,13 @@ template 'list' => sub {
     my ( $page ) = get('page');
     my $item_path = get('item_path') || $self->fragment_for("view");
     my $collection =  $self->_current_collection();
+
+    div {
+        class is "control";
+
+        outs_raw( Jifty->web->return( label => _("Back") ) );
+    };
+
     div {
         {class is 'crud-'.$self->object_type}; 
         show( './search_region' );
@@ -32,7 +39,6 @@ template 'new_item' => sub {
         show('./new_item_controls', $create);
     };
     hr {};
-    outs_raw( Jifty->web->return( label => _("Back") ) );
 };
 
 1;
