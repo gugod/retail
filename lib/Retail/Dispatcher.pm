@@ -5,6 +5,15 @@ use utf8;
 use Jifty::Dispatcher -base;
 use JiftyX::ModelHelpers;
 
+before '/' => run {
+    my $menu = Jifty->web->navigation;
+    my $link = Jifty->web->return( label => _("Back") );
+
+    if (index($link->url, "J:CALL=") > 0) {
+        $menu->child( back => label => _("Back"), link => $link );
+    }
+};
+
 on GET '/supply' => run {
     redirect("/provider");
 };

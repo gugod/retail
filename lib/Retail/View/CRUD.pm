@@ -11,12 +11,6 @@ template 'list' => sub {
     my $collection =  $self->_current_collection();
 
     div {
-        class is "control";
-
-        outs_raw( Jifty->web->return( label => _("Back") ) );
-    };
-
-    div {
         {class is 'crud-'.$self->object_type}; 
         show( './search_region' );
         show( './new_item_region');
