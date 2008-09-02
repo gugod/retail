@@ -11,6 +11,10 @@ use Retail::Record schema {
     column pic =>
         type is "blob",
         render as "Upload";
+
+    column supplies =>
+        references Retail::Model::SupplyCommodityCollection by 'commodity';
+
 };
 
 sub before_create {
@@ -28,9 +32,13 @@ sub before_set_pic {
 
 sub quantities_in_stock {
     my ($self) = @_;
+    my $q = 0;
+    my $supplies = $self->supplies;
+    while (my $s = $supplies->next) {
+        $q += $s->quantity;
+    }
 
-    # XXX
-    return 1;
+    return $q;
 }
 
 use Imager;
