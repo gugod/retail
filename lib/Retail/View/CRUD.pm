@@ -20,6 +20,34 @@ template 'list' => sub {
     };
 };
 
+private template 'new_item_region' => sub {
+    my $self        = shift;
+    my $fragment_for_new_item = get('fragment_for_new_item') || $self->fragment_for('new_item');
+    my $object_type = $self->object_type;
+
+    if ($fragment_for_new_item) {
+        my $new_item_region = Jifty::Web::PageRegion->new(
+            name => "new_item",
+            path => "/__jifty/empty"
+        );
+
+        hyperlink(
+            class => "toggle button",
+            label => _("Toggle new item"),
+            onclick => [
+                {
+                    region => $new_item_region->qualified_name,
+                    replace_with => $fragment_for_new_item,
+                    toggle => 1,
+                    args => { object_type => $object_type }
+                }
+            ]
+        );
+
+        outs( $new_item_region->render );
+    }
+};
+
 template 'new_item' => sub {
     my $self = shift;
     my ( $object_type ) = ( $self->object_type );
