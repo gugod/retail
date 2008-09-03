@@ -13,9 +13,11 @@ use Retail::Record schema {
         render as "Upload";
 
     column supplies =>
+        type is 'integer',
         references Retail::Model::SupplyCommodityCollection by 'commodity';
 
     column sales =>
+        type is 'integer',
         references Retail::Model::SaleCommodityCollection by 'commodity';
 };
 

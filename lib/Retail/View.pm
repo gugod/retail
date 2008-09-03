@@ -4,6 +4,7 @@ use warnings;
 use utf8;
 use Jifty::View::Declare -base;
 use Jifty::View::Declare::CRUD;
+
 use Retail::ViewHelpers;
 use Retail::View::Stock;
 
@@ -12,6 +13,10 @@ Jifty::View::Declare::CRUD->mount_view("Commodity");
 Jifty::View::Declare::CRUD->mount_view("Consumer");
 
 alias Retail::View::Stock under "/stock";
+
+# For some reason 'use JiftyX::ModelHelpers' break the alias statement above.
+require JiftyX::ModelHelpers;
+JiftyX::ModelHelpers->import();
 
 template '/' => page {
     div {
@@ -27,6 +32,22 @@ template '/' => page {
                     );
                 };
             }
+        }
+    }
+};
+
+template '/supply/list' => page {
+    my $c = SupplyCollection(draft => 0);
+    ul {
+        while (my $supply = $c->next) {
+            li {
+                span {
+                    outs($supply->id);
+                };
+                span {
+                    outs($supply->provider->name);
+                };
+            };
         }
     }
 };

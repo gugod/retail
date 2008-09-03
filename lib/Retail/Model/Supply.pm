@@ -5,13 +5,16 @@ package Retail::Model::Supply;
 use Jifty::DBI::Schema;
 
 use Retail::Record schema {
-    column provider => references Retail::Model::Provider;
+    column provider =>
+        type is 'integer',
+        references Retail::Model::Provider;
 
     column draft =>
         type is 'boolean',
         default is 1;
 
     column commodities =>
+        type is 'integer',
         references Retail::Model::SupplyCommodityCollection by 'supply';
 
 };
