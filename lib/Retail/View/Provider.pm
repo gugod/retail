@@ -31,8 +31,10 @@ template "supply" => page {
         form {
             my $action = $supply->as_update_action;
             $action->hidden(draft => 0);
-            $action->hidden('provider');
+            $action->hidden(provider => $supply->provider->id);
+
             render_action($action);
+            form_next_page(url => "/supply/list");
             form_submit(
                 label => _("Finish"),
                 onclick => {
