@@ -10,44 +10,6 @@ use JiftyX::ModelHelpers qw(Provider Supply SupplyCommodityCollection );
 
 sub record_type { "Provider" }
 
-template 'view' => sub {
-    my $self   = shift;
-    my $record = $self->_get_record( get('id') );
-
-    my $update = $record->as_update_action(
-        moniker => "update-" . Jifty->web->serial,
-    );
-    div {
-        { class is 'crud read item inline' };
-
-        my @fields = $self->display_columns($update);
-        foreach my $field (@fields) {
-            div {
-                { class is 'view-argument-'.$field };
-
-                render_param(
-                    $update => $field,
-                    render_mode => 'read'
-                );
-            };
-        }
-    };
-
-    div {
-        class is "controls";
-
-        hyperlink(
-            label =>  _("Supply from here"),
-            url => "/provider/@{[ $record->id ]}/supply"
-        );
-
-        show ('./view_item_controls', $record, $update);
-    }
-
-    hr {};
-};
-
-
 template "supply" => page {
     my ($supply, $provider) = get qw(supply provider);
 
@@ -136,5 +98,31 @@ template "supply" => page {
 
 };
 
+private template view_item_controls  => sub {
+    my $self = shift;
+    my $record = shift;
+
+    ul {
+        li {
+            hyperlink(
+                label => _("Supply from here"),
+                url => "/provider/@{[ $record->id ]}/supply"
+            );
+        };
+
+        if ( $record->current_user_can('update') ) {
+            li {
+                hyperlink(
+                    label   => _("Edit"),
+                    class   => "editlink",
+                    onclick => {
+                        replace_with => $self->fragment_for('update'),
+                        args         => { id => $record->id }
+                    },
+                );
+            };
+        }
+    }
+};
 
 1;
