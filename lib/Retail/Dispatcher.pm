@@ -23,17 +23,17 @@ on GET '/sale' => run {
 };
 
 on "/provider/#/supply" => run {
-    my $supply_id;
+    my $id;
     my $c = SupplyCollection(provider => $1, draft => 1);
 
     if ($c->count >= 1) {
-        $supply_id = $c->first->id;
+        $id = $c->first->id;
     }
     else {
-        $supply_id = Supply->create(provider => $1);
+        $id = Supply->create(provider => $1);
     }
 
-    redirect "/provider/$1/supply/$supply_id";
+    redirect "/provider/$1/supply/$id";
 };
 
 on "/provider/#/supply/#" => run {
