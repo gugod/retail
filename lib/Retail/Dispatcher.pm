@@ -12,15 +12,6 @@ before '*' => run {
     $menu->child(stock => label => _("Stock"), url => "/stock");
 };
 
-before '/' => run {
-    my $menu = Jifty->web->navigation;
-    my $link = Jifty->web->return( label => _("Back") );
-
-    if (index($link->url, "J:CALL=") > 0) {
-        $menu->child( back => label => _("Back"), link => $link );
-    }
-};
-
 on "/provider/#/supply" => run {
     my $id;
     my $c = SupplyCollection(provider => $1, draft => 1);
