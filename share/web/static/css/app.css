@@ -154,7 +154,7 @@ table.list span.commodity.name {
 div.crud.create.item.inline,
 div.crud.update.item.inline {
     background: #ccf;
-    padding: 1em;
+    padding: 0 1em;
     font-size: 1.5em;
     border: 1px solid #eef;
     -moz-border-radius: 5px;
@@ -188,4 +188,27 @@ table.list td img {
 
 table.stock.list {
     font-size: 1.5em;
+}
+
+.crud-Commodity > a,
+.crud-Provider > a,
+.crud-Consumer > a {
+   float: left;
+   width: auto;
+   display: block;
+   margin-right: 15px;
+   padding: 5px;
+   background: #f0f0f0;
+   border: 1px solid #aaa;
+   color: #000;
+   text-decoration: none;
+}
+
+div.list {
+    clear: both;
+}
+
+.crud.create.item.inline,
+.crud-Consumer > div.list {
+   clear: both;
 }
