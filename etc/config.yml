@@ -26,6 +26,7 @@ framework:
   MailerArgs: []
 
   Plugins:
+    - SinglePage: {}
     - I18N: {}
     - LetMe: {}
     - SkeletonApp: {}

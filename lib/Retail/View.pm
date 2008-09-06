@@ -36,6 +36,14 @@ template '/' => page {
     }
 };
 
+template '/supply' => page {
+    title is _("Supply");
+
+    h3 { _("Please choose a provider.") };
+
+    show("/provider/list");
+};
+
 template '/supply/list' => page {
     my $c = SupplyCollection(draft => 0);
     ul {
@@ -51,5 +59,12 @@ template '/supply/list' => page {
         }
     }
 };
+
+template '/sale' => page {
+    title is _("Sale");
+    h3 { _("Please choose a consumer.") };
+    show("/consumer/list");
+};
+
 
 1;

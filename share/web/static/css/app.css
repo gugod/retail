@@ -52,18 +52,32 @@ div.warning {
 }
 
 div#navigation {
-    width: 250px;
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    width: 100%;
+    height: auto;
+    float : left;
+    position: relative;
+    top: -40px;
+    left: 0px;
     background: #fff;
     font-size: 1.4em;
+    padding: 0;
+    margin: 1em 0;
 }
 div#navigation ul.menu {
+    position: relative;
+    float: left;
+    clear: left;
+    left: 50%;
+    text-align:center;
+    width: auto;
     border: none;
     background: none;
+    padding: 0;
+    margin: 0;
 }
 div#navigation ul.menu li {
+    position: relative;
+    right: 50%;
     float: left;
     margin-right: 1.2em;
     border: none;

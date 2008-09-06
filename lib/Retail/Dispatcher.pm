@@ -5,6 +5,13 @@ use utf8;
 use Jifty::Dispatcher -base;
 use JiftyX::ModelHelpers;
 
+before '*' => run {
+    my $menu = Jifty->web->navigation;
+    $menu->child(supply => label => _("Supply"), url => "/supply");
+    $menu->child(sale => label => _("Sale"), url => "/sale");
+    $menu->child(stock => label => _("Stock"), url => "/stock");
+};
+
 before '/' => run {
     my $menu = Jifty->web->navigation;
     my $link = Jifty->web->return( label => _("Back") );
@@ -12,14 +19,6 @@ before '/' => run {
     if (index($link->url, "J:CALL=") > 0) {
         $menu->child( back => label => _("Back"), link => $link );
     }
-};
-
-on GET '/supply' => run {
-    redirect("/provider");
-};
-
-on GET '/sale' => run {
-    redirect("/consumer");
 };
 
 on "/provider/#/supply" => run {
