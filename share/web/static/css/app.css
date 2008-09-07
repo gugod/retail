@@ -144,7 +144,6 @@ div.list .controls > div {
 table.list {
     width: 100%;
     margin: 1em 0;
-    table-layout: fixed;
     border-collapse: collapse;
 }
 

@@ -76,13 +76,28 @@ template "supply" => page {
         class is "supply commodity list";
 
         row {
+            cell { _("Delete?") };
             cell { _("Name") };
             cell { _("Quantity") };
             cell { _("Price") };
+            cell { _("Retail Price") };
             cell { _("SubTotal") };
         };
         while (my $item = $c->next) {
            row {
+               cell {
+                   class is "controls";
+                   form {
+                       hyperlink(
+                           label => _("Delete"),
+                           onclick => {
+                               confirm => "Are you sure?",
+                               submit => $item->as_delete_action,
+                               refresh_self => 1
+                           }
+                       );
+                   }
+               };
                cell {
                    outs_raw image_to_commodity($item->commodity);
 
@@ -92,7 +107,8 @@ template "supply" => page {
                    };
                };
                cell { $item->quantity };
-               cell { $item->price . " " . $item->currency };
+               cell { $item->price . " " . $item->currency ; };
+               cell { $item->retail_price . " " . $item->currency; };
                cell { ($item->quantity * $item->price) . " " . $item->currency };
            };
        }
