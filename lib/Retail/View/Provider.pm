@@ -34,7 +34,7 @@ template "supply" => page {
             $action->hidden(provider => $supply->provider->id);
 
             render_action($action);
-            form_next_page(url => "/supply");
+            form_next_page(url => "/");
             form_submit(
                 label => _("Finish"),
                 onclick => {
@@ -88,12 +88,11 @@ template "supply" => page {
                cell {
                    class is "controls";
                    form {
-                       hyperlink(
+                       render_action($item->as_delete_action);
+                       form_submit(
                            label => _("Delete"),
                            onclick => {
-                               confirm => "Are you sure?",
-                               submit => $item->as_delete_action,
-                               refresh_self => 1
+                               confirm => _("Are you sure ?")
                            }
                        );
                    }
@@ -113,7 +112,6 @@ template "supply" => page {
            };
        }
     };
-
 };
 
 private template view_item_controls  => sub {

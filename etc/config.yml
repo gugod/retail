@@ -26,16 +26,16 @@ framework:
   MailerArgs: []
 
   Plugins:
-    - SinglePage: {}
+    # - SinglePage: {}
     - I18N: {}
     - LetMe: {}
     - SkeletonApp: {}
-    - REST: {}
+    # - REST: {}
     # - Halo: {}
     - ErrorTemplates: {}
-    - OnlineDocs: {}
+    # - OnlineDocs: {}
     - CompressedCSSandJS: {}
-    - AdminUI: {}
+    # - AdminUI: {}
 
   PubSub: 
     Backend: Memcached
