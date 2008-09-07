@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Retail 2.9\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2008-09-07 00:06+0800\n"
+"PO-Revision-Date: 2008-09-07 08:08+0800\n"
 "Last-Translator: Kang-min Liu <gugod@gugod.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,9 +21,9 @@ msgstr "新增"
 
 #: lib/Retail/Model/Consumer.pm:28
 msgid "Anything special for this consuemr ?"
-msgstr ""
+msgstr "此消費者有何特別需求嗎？"
 
-#: lib/Retail/Dispatcher.pm:10 lib/Retail/Dispatcher.pm:13
+#:
 msgid "Back"
 msgstr "回上一頁"
 
@@ -32,16 +32,16 @@ msgid "Buy"
 msgstr "進貨"
 
 #:
-msgid "Buy from %1"
-msgstr "自%1進貨"
-
-#:
-msgid "Buy from here"
-msgstr "自此處進貨"
-
-#:
 msgid "Commodities"
 msgstr "商品"
+
+#: lib/Retail/Dispatcher.pm:12
+msgid "Commodity"
+msgstr "商品"
+
+#: lib/Retail/Model/SaleCommodity.pm:23
+msgid "Currency"
+msgstr "貨幣"
 
 #: lib/Retail/View/Consumer.pm:24 lib/Retail/View/Provider.pm:24
 msgid "Discard"
@@ -51,7 +51,7 @@ msgstr "捨棄"
 msgid "Done"
 msgstr "結束"
 
-#: lib/Retail/View/Consumer.pm:100 lib/Retail/View/Provider.pm:118
+#: lib/Retail/View/Commodity.pm:67 lib/Retail/View/Consumer.pm:100 lib/Retail/View/Provider.pm:118
 msgid "Edit"
 msgstr "編輯"
 
@@ -62,6 +62,10 @@ msgstr "結束"
 #: lib/Retail/View/Provider.pm:53
 msgid "Go add a new commodity if you don't see it in here"
 msgstr "如果沒看見商品的話，請點擊此前去增加新的商品。"
+
+#: lib/Retail/View/Commodity.pm:59
+msgid "In Stock"
+msgstr "庫存"
 
 #: lib/Retail/View/Stock.pm:25
 msgid "In stock"
@@ -91,15 +95,23 @@ msgstr "電話號碼"
 msgid "Picture and Name"
 msgstr "圖片、名稱"
 
-#: lib/Retail/View/Consumer.pm:64 lib/Retail/View/Provider.pm:81
+#: lib/Retail/View.pm:65
+msgid "Please choose a consumer."
+msgstr "請選擇消費者"
+
+#: lib/Retail/View.pm:42
+msgid "Please choose a provider."
+msgstr "請選則供應商"
+
+#: lib/Retail/Model/SaleCommodity.pm:19 lib/Retail/View/Consumer.pm:64 lib/Retail/View/Provider.pm:81
 msgid "Price"
 msgstr "價格"
 
-#: lib/Retail/View/Consumer.pm:63 lib/Retail/View/Provider.pm:80
+#: lib/Retail/Model/SaleCommodity.pm:15 lib/Retail/View/Consumer.pm:63 lib/Retail/View/Provider.pm:80
 msgid "Quantity"
 msgstr "數量"
 
-#:
+#: lib/Retail/Dispatcher.pm:11 lib/Retail/View.pm:64
 msgid "Sale"
 msgstr "銷貨"
 
@@ -109,26 +121,27 @@ msgstr "儲存之後便無法再修改此單據，確定嗎？"
 
 #: lib/Retail/View/Consumer.pm:39
 msgid "Save this ticket will make it not-editable. Are you sure ?"
-msgstr ""
+msgstr "儲存之後便無法再修改此單據，確定嗎？"
 
-#: lib/Retail/View/Consumer.pm:16
+#: lib/Retail/View/Consumer.pm:16 lib/Retail/View/Consumer.pm:92
 #. ($consumer->name)
+#. ($record->name)
 msgid "Sell to %1"
 msgstr "販賣給%1"
 
-#: lib/Retail/View/Consumer.pm:92
+#:
 msgid "Sell to this consumer"
-msgstr ""
+msgstr "販賣給此消費者"
 
 #: lib/Retail/Model/Consumer.pm:23
 msgid "Shipping address"
-msgstr ""
+msgstr "送貨地址"
 
 #: lib/Retail/View/Stock.pm:11
 msgid "Stock"
 msgstr "存貨"
 
-#: lib/Retail/View/Stock.pm:36
+#: lib/Retail/View/Commodity.pm:60 lib/Retail/View/Stock.pm:36
 msgid "Stockless"
 msgstr "無存貨"
 
@@ -136,7 +149,7 @@ msgstr "無存貨"
 msgid "SubTotal"
 msgstr "小記"
 
-#:
+#: lib/Retail/Dispatcher.pm:10 lib/Retail/View.pm:40
 msgid "Supply"
 msgstr "進貨"
 
@@ -149,13 +162,13 @@ msgstr "自%1進貨"
 msgid "Supply from here"
 msgstr "自此處進貨"
 
-#: lib/Retail/View.pm:40
+#:
 msgid "Supply » Please choose a provider."
 msgstr "進貨 » 請選擇供應商"
 
 #: lib/Retail/View/Consumer.pm:26
 msgid "This sale ticket will be removed cannot be reverted. Are you sure ?"
-msgstr ""
+msgstr "此單據將會被永久刪除並且無法回復。確定嗎？"
 
 #: lib/Retail/View/Provider.pm:26
 msgid "This supply ticket will be removed cannot be reverted. Are you sure ?"
@@ -163,4 +176,4 @@ msgstr "此單據將會被永久刪除並且無法回復。確定嗎？"
 
 #: lib/Retail/View/CRUD.pm:36
 msgid "Toggle new item"
-msgstr ""
+msgstr "切換新增項目畫面"

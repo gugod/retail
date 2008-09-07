@@ -17,12 +17,6 @@ template 'view' => sub {
     my $update = $record->as_update_action(
         moniker => "update-" . Jifty->web->serial,
     );
-    div {
-        class is "commodity pic";
-        img {
-            src is commodity_pic_path($record)
-        };
-    }
 
     div {
         { class is 'crud read item inline' };
@@ -46,6 +40,42 @@ template 'view' => sub {
     }
 
     hr {};
+
+};
+
+private template view_item_controls  => sub {
+    my $self = shift;
+    my $record = shift;
+
+    div {
+        class is "commodity pic";
+        img {
+            src is commodity_pic_path($record)
+        };
+    };
+
+    div {
+        class is "quantities";
+        h6 { _("In Stock") };
+        span {
+            outs($record->quantities_in_stock || _("Stockless"));
+        };
+    };
+
+    if ( $record->current_user_can('update') ) {
+        div {
+
+            hyperlink(
+                label   => _("Edit"),
+                class   => "editlink",
+                onclick => {
+                    replace_with => $self->fragment_for('update'),
+                    args         => { id => $record->id }
+                },
+            );
+        }
+
+    }
 
 };
 

@@ -89,7 +89,7 @@ private template view_item_controls  => sub {
     ul {
         li {
             hyperlink(
-                label => _("Sell to this consumer"),
+                label => _('Sell to %1', $record->name),
                 url => "/consumer/@{[ $record->id ]}/sale"
             );
         };

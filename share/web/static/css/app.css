@@ -112,15 +112,18 @@ h1.title {
 }
 
 /* CRUD List */
+div.list {
+    padding-top: 2em;
+}
+
 div.list div.controls {
     float: left;
-    margin: 5px 15px 0 0;
+    margin: 5px 15px 15px 0;
 }
 
 div.list div.controls a {
     display: block;
     margin: 0 15px 0.5em 0;
-    padding: 5px;
 }
 
 div.list .commodity.pic {
@@ -130,6 +133,12 @@ div.list .commodity.pic {
     overflow:hidden;
     margin-right: 15px;
 }
+
+div.list .controls > div {
+  float: left;
+  margin-right: 15px;
+}
+
 /* */
 
 table.list {
@@ -204,11 +213,35 @@ table.stock.list {
    text-decoration: none;
 }
 
+.crud.create.item.inline {
+    clear: both;
+}
+
 div.list {
     clear: both;
 }
 
-.crud.create.item.inline,
-.crud-Consumer > div.list {
-   clear: both;
+div.list .form_field {
+   width: 160px;
+}
+
+div.list .view-argument-pic {
+    display: none;
+}
+
+div.list .quantities {
+    width: 120px;
+}
+div.list .quantities span {
+    font-size: 2em;
+}
+
+div.list>.jifty-region {
+    margin-bottom: 2em;
+}
+
+hr {
+    clear: both;
+    margin: 1em 0;
+    border-color: #fff;
 }

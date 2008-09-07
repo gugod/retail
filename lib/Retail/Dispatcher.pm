@@ -9,7 +9,7 @@ before '*' => run {
     my $menu = Jifty->web->navigation;
     $menu->child(supply => label => _("Supply"), url => "/supply");
     $menu->child(sale => label => _("Sale"), url => "/sale");
-    $menu->child(stock => label => _("Stock"), url => "/stock");
+    $menu->child(commodity => label => _("Commodity"), url => "/commodity");
 };
 
 on "/provider/#/supply" => run {
