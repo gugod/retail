@@ -34,7 +34,7 @@ template "supply" => page {
             $action->hidden(provider => $supply->provider->id);
 
             render_action($action);
-            form_next_page(url => "/supply/list");
+            form_next_page(url => "/supply");
             form_submit(
                 label => _("Finish"),
                 onclick => {
@@ -49,7 +49,7 @@ template "supply" => page {
                 tangent(
                     label => _("Manage Commodities"),
                     as_button => 1,
-                    url => "/commodity",
+                    url => "/stock",
                     tooltip => _("Go add a new commodity if you don't see it in here")
                 );
             };

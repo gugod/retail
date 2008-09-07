@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Retail 2.9\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2008-09-07 08:08+0800\n"
+"PO-Revision-Date: 2008-09-07 08:40+0800\n"
 "Last-Translator: Kang-min Liu <gugod@gugod.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,10 @@ msgstr ""
 #: lib/Retail/View/Consumer.pm:52 lib/Retail/View/Provider.pm:68
 msgid "Add"
 msgstr "新增"
+
+#: lib/Retail/Model/Provider.pm:13
+msgid "Address"
+msgstr "地址"
 
 #: lib/Retail/Model/Consumer.pm:28
 msgid "Anything special for this consuemr ?"
@@ -35,13 +39,17 @@ msgstr "進貨"
 msgid "Commodities"
 msgstr "商品"
 
-#: lib/Retail/Dispatcher.pm:12
+#: lib/Retail/Dispatcher.pm:12 lib/Retail/Model/SupplyCommodity.pm:12
 msgid "Commodity"
 msgstr "商品"
 
-#: lib/Retail/Model/SaleCommodity.pm:23
+#: lib/Retail/Model/SaleCommodity.pm:23 lib/Retail/Model/SupplyCommodity.pm:28
 msgid "Currency"
 msgstr "貨幣"
+
+#: lib/Retail/Model/Provider.pm:17
+msgid "Description"
+msgstr "描述"
 
 #: lib/Retail/View/Consumer.pm:24 lib/Retail/View/Provider.pm:24
 msgid "Discard"
@@ -51,7 +59,7 @@ msgstr "捨棄"
 msgid "Done"
 msgstr "結束"
 
-#: lib/Retail/View/Commodity.pm:67 lib/Retail/View/Consumer.pm:100 lib/Retail/View/Provider.pm:118
+#: lib/Retail/View/Commodity.pm:69 lib/Retail/View/Consumer.pm:100 lib/Retail/View/Provider.pm:118
 msgid "Edit"
 msgstr "編輯"
 
@@ -83,13 +91,17 @@ msgstr "管理商品"
 msgid "Memo"
 msgstr "註記"
 
-#: lib/Retail/Model/Consumer.pm:10 lib/Retail/View/Consumer.pm:62 lib/Retail/View/Provider.pm:79
+#: lib/Retail/Model/Commodity.pm:9 lib/Retail/Model/Consumer.pm:10 lib/Retail/Model/Provider.pm:9 lib/Retail/View/Consumer.pm:62 lib/Retail/View/Provider.pm:79
 msgid "Name"
 msgstr "名稱"
 
 #: lib/Retail/Model/Consumer.pm:17
 msgid "Phone number"
 msgstr "電話號碼"
+
+#: lib/Retail/Model/Commodity.pm:13
+msgid "Picture"
+msgstr "照片"
 
 #: lib/Retail/View/Stock.pm:24
 msgid "Picture and Name"
@@ -103,13 +115,17 @@ msgstr "請選擇消費者"
 msgid "Please choose a provider."
 msgstr "請選則供應商"
 
-#: lib/Retail/Model/SaleCommodity.pm:19 lib/Retail/View/Consumer.pm:64 lib/Retail/View/Provider.pm:81
+#: lib/Retail/Model/SaleCommodity.pm:19 lib/Retail/Model/SupplyCommodity.pm:20 lib/Retail/View/Consumer.pm:64 lib/Retail/View/Provider.pm:81
 msgid "Price"
 msgstr "價格"
 
-#: lib/Retail/Model/SaleCommodity.pm:15 lib/Retail/View/Consumer.pm:63 lib/Retail/View/Provider.pm:80
+#: lib/Retail/Model/SaleCommodity.pm:15 lib/Retail/Model/SupplyCommodity.pm:16 lib/Retail/View/Consumer.pm:63 lib/Retail/View/Provider.pm:80
 msgid "Quantity"
 msgstr "數量"
+
+#: lib/Retail/Model/SupplyCommodity.pm:24
+msgid "Retail Price"
+msgstr "零售價"
 
 #: lib/Retail/Dispatcher.pm:11 lib/Retail/View.pm:64
 msgid "Sale"
@@ -141,7 +157,7 @@ msgstr "送貨地址"
 msgid "Stock"
 msgstr "存貨"
 
-#: lib/Retail/View/Commodity.pm:60 lib/Retail/View/Stock.pm:36
+#: lib/Retail/View/Commodity.pm:61 lib/Retail/View/Stock.pm:36
 msgid "Stockless"
 msgstr "無存貨"
 

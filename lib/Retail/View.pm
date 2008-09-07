@@ -23,7 +23,7 @@ template '/' => page {
         class is "buttons";
 
         ul {
-            for (qw(supply sale commodity)) {
+            for (qw(supply sale stock)) {
                 li {
                     hyperlink(
                         url => "/$_",

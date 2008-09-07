@@ -6,9 +6,11 @@ use Jifty::DBI::Schema;
 
 use Retail::Record schema {
     column name =>
+        label is _("Name"),
         type is 'varchar(255)';
 
     column pic =>
+        label is _("Picture"),
         type is "blob",
         render as "Upload";
 

@@ -9,7 +9,7 @@ use JiftyX::ModelHelpers;
 
 template 'index.html' => page {
     title is _("Stock");
-    show("commodities");
+    show("/commodity/list");
 };
 
 template 'commodities' => sub {
