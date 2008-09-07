@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Retail 2.9\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2008-09-07 08:40+0800\n"
+"PO-Revision-Date: 2008-09-07 09:01+0800\n"
 "Last-Translator: Kang-min Liu <gugod@gugod.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "進貨"
 msgid "Commodities"
 msgstr "商品"
 
-#: lib/Retail/Dispatcher.pm:12 lib/Retail/Model/SupplyCommodity.pm:12
+#: lib/Retail/Model/SupplyCommodity.pm:12
 msgid "Commodity"
 msgstr "商品"
 
@@ -75,7 +75,7 @@ msgstr "如果沒看見商品的話，請點擊此前去增加新的商品。"
 msgid "In Stock"
 msgstr "庫存"
 
-#: lib/Retail/View/Stock.pm:25
+#: lib/Retail/View/Stock.pm:26
 msgid "In stock"
 msgstr "庫存"
 
@@ -103,7 +103,7 @@ msgstr "電話號碼"
 msgid "Picture"
 msgstr "照片"
 
-#: lib/Retail/View/Stock.pm:24
+#: lib/Retail/View/Stock.pm:25
 msgid "Picture and Name"
 msgstr "圖片、名稱"
 
@@ -153,11 +153,15 @@ msgstr "販賣給此消費者"
 msgid "Shipping address"
 msgstr "送貨地址"
 
-#: lib/Retail/View/Stock.pm:11
+#: lib/Retail/Dispatcher.pm:12
 msgid "Stock"
 msgstr "存貨"
 
-#: lib/Retail/View/Commodity.pm:61 lib/Retail/View/Stock.pm:36
+#: lib/Retail/View/Stock.pm:11
+msgid "Stock (Manage commodities)"
+msgstr "存貨（管理商品）"
+
+#: lib/Retail/View/Commodity.pm:61 lib/Retail/View/Stock.pm:37
 msgid "Stockless"
 msgstr "無存貨"
 
