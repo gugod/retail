@@ -9,7 +9,13 @@ use JiftyX::ModelHelpers;
 
 template 'index.html' => page {
     title is _("Stock (Manage commodities)");
-    show("/commodity/list");
+
+    form {
+        render_region(
+            name     => "commodity-list",
+            path     => "/commodity/list"
+        );
+    }
 };
 
 template 'commodities' => sub {
