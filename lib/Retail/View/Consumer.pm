@@ -33,6 +33,7 @@ template 'sale' => page {
             $action->hidden(draft => 0);
             $action->hidden('consumer');
             render_action($action);
+            form_next_page(url => "/");
             form_submit(
                 label => _("Done"),
                 onclick => {
