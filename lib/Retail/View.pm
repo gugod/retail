@@ -47,26 +47,34 @@ template '/supply' => page { title => _("Supply") } content {
     };
 };
 
-template '/supply/list' => page {
+template '/supply/history' => page {
     my $c = SupplyCollection(draft => 0);
-    ul {
-        while (my $supply = $c->next) {
-            li {
-                span {
-                    outs($supply->id);
+    div {
+        { class is "supply history" };
+
+        ul {
+            while (my $supply = $c->next) {
+                li {
+                    span { outs($supply->id); };
+                    span { outs($supply->provider->name) };
                 };
-                span {
-                    outs($supply->provider->name);
-                };
-            };
+            }
         }
-    }
+    };
 };
 
-template '/sale' => page {
-    title is _("Sale");
+template '/sale' => page { title => _("Sale") } content {
     h3 { _("Please choose a consumer.") };
-    show("/consumer/list");
+    form {
+        render_region(
+            name     => "consumer-list",
+            path     => "/consumer/list"
+        );
+    };
+};
+
+private template 'menu' => sub {
+    outs_raw(Jifty->web->navigation->render_as_yui_menubar);
 };
 
 

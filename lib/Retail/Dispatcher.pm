@@ -10,6 +10,9 @@ before '*' => run {
     $menu->child(supply => label => _("Supply"), url => "/supply");
     $menu->child(sale => label => _("Sale"), url => "/sale");
     $menu->child(stock => label => _("Stock"), url => "/stock");
+
+    my $supply_menu = $menu->child('supply');
+    $supply_menu->child(list => label => _("History"), url => "/supply/history");
 };
 
 on "/provider/#/supply" => run {
