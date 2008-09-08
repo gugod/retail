@@ -36,12 +36,15 @@ template '/' => page {
     }
 };
 
-template '/supply' => page {
-    title is _("Supply");
-
+template '/supply' => page { title => _("Supply") } content {
     h3 { _("Please choose a provider.") };
 
-    show("/provider/list");
+    form {
+        render_region(
+            name     => "provider-list",
+            path     => "/provider/list"
+        );
+    };
 };
 
 template '/supply/list' => page {
