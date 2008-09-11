@@ -1,5 +1,6 @@
 --- 
 framework: 
+  SiteConfig: etc/site_config.yml
   AdminMode: 0
   ApplicationClass: Retail
   ApplicationName: Retail
