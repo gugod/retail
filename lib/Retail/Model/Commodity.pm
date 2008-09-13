@@ -2,6 +2,8 @@ use strict;
 use warnings;
 
 package Retail::Model::Commodity;
+use base qw/Retail::Record/;
+
 use Jifty::DBI::Schema;
 
 use Retail::Record schema {
@@ -14,12 +16,16 @@ use Retail::Record schema {
         type is "blob",
         render as "Upload";
 
+    column providers =>
+        type is '',
+        references Retail::Model::ProviderCommodityCollection by 'commodity';
+
     column supplies =>
-        type is 'integer',
+        type is '',
         references Retail::Model::SupplyCommodityCollection by 'commodity';
 
     column sales =>
-        type is 'integer',
+        type is '',
         references Retail::Model::SaleCommodityCollection by 'commodity';
 };
 
@@ -28,6 +34,36 @@ sub before_create {
     if(defined($args->{pic})) {
         $args->{pic} = $self->pic_rescale($args->{pic});
     }
+
+    if ($args->{provider} && $args->{stock_number}) {
+        $self->{provider} = $args->{provider};
+        $self->{stock_number} = $args->{stock_number};
+    }
+
+    $self->{stash} = {
+        provider => delete $args->{provider},
+        stock_number => delete $args->{stock_number}
+    };
+
+    return 1;
+}
+
+sub after_create {
+    my $self                    = shift;
+    my $insert_return_value_ref = shift;
+    my %stash                   = %{$self->{stash}};
+    return unless (defined $stash{provider} && defined $stash{stock_number});
+
+    return unless $$insert_return_value_ref;    # bail if insert failed
+    $self->load($$insert_return_value_ref);     # load ourselves from db
+
+    my $pc = Jifty->app_class(Model => 'ProviderCommodity')->new;
+    $pc->create(
+        provider => $stash{provider},
+        commodity => $self->id,
+        stock_number => $stash{stock_number}
+    );
+
     return 1;
 }
 
