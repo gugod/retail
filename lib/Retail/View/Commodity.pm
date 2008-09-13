@@ -35,7 +35,8 @@ template 'view' => sub {
     };
 
     div {
-        class is "controls";
+        { class is "controls" };
+
         show ('./view_item_controls', $record, $update);
     }
 
