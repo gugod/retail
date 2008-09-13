@@ -2,11 +2,7 @@ package Retail::Test::Fixtures;
 
 use JiftyX::ModelHelpers;
 
-sub import {
-    load(@_);
-}
-
-# Retail::Test::Fixtures->load(qw(providers commodities))
+# use Retail::Test::Fixtures qw(providers commodities);
 
 sub import {
     my ($class, @fixtures) = @_;
@@ -29,5 +25,5 @@ sub commodities {
     Commodity->create(name => "Hello Kitty A");
 }
 
-
 1;
+
