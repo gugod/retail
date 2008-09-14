@@ -41,7 +41,7 @@ framework:
   PubSub: 
     Backend: Memcached
     Enable: ~
-  SkipAccessControl: 0
+  SkipAccessControl: 1
   TemplateClass: Retail::View
   View: 
     FallbackHandler: Jifty::View::Mason::Handler
