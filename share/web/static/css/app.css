@@ -14,7 +14,7 @@
     margin-left: 0;
 }
 
-.buttons ul {  
+.buttons ul {
     position: relative;
     margin-left: -50%;
 
@@ -250,6 +250,27 @@ hr {
     border-color: #fff;
 }
 
+div.form_field label.label, div.form_field span.label {
+    float: left;
+    width: auto;
+    text-align: right;
+    font-size: 80%;
+    padding: 0.2em 0.5em 0 0;
+}
+
+
 .yuimenubar {
     font-size: 2em;
+}
+
+.view-argument {
+    float: left;
+}
+
+.view-argument.stock-number {
+
+}
+
+.view-argument.stock-number .form_field {
+    width: auto;
 }

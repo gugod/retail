@@ -12,7 +12,12 @@ Jifty::View::Declare::CRUD->mount_view("Provider");
 Jifty::View::Declare::CRUD->mount_view("Commodity");
 Jifty::View::Declare::CRUD->mount_view("Consumer");
 
+alias Jifty::View::Declare::CRUD under "/provider_commodity", {
+    object_type => "ProviderCommodity"
+};
+
 alias Retail::View::Stock under "/stock";
+
 
 # For some reason 'use JiftyX::ModelHelpers' break the alias statement above.
 require JiftyX::ModelHelpers;

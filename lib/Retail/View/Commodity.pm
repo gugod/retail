@@ -10,6 +10,49 @@ use JiftyX::ModelHelpers;
 
 sub record_type { "Commodity" }
 
+template 'view_stock_numbers' => sub {
+    my $self = shift;
+    my $id = get('id');
+    my $record = $self->_get_record($id);
+
+    with(class => "label"), h5 { _("Provider / Stock Number"); };
+    my $c = ProviderCommodityCollection(commodity => $id);
+    if ($c->count > 0) {
+        while (my $r = $c->next) {
+            div {
+                with(class => "provider name"), span { $r->provider->name };
+                outs " : ";
+                with(class => "stock_number"), span { $r->stock_number };
+                hyperlink(
+                    label => _("ⓧ"),
+                    onclick => {
+                        confirm => _("Are you sure ?"),
+                        submit => $r->as_delete_action,
+                        refresh_self => 1,
+                        args => { id => $id }
+                    }
+                );
+            };
+        }
+    }
+    else {
+        my $action = new_action( class => "CreateProviderCommodity");
+        $action->hidden( commodity => $record->id );
+        $action->argument_value(commodity => $record->id );
+        div {
+            render_action($action);
+            hyperlink(
+                label => _("Add"),
+                onclick => {
+                    submit => $action,
+                    refresh_self => 1,
+                    args => { id => $id }
+                },
+            );
+        };
+    }
+};
+
 template 'view' => sub {
     my $self   = shift;
     my $record = $self->_get_record( get('id') );
@@ -24,7 +67,7 @@ template 'view' => sub {
         my @fields = $self->display_columns($update);
         foreach my $field (@fields) {
             div {
-                { class is 'view-argument-'.$field };
+                { class is 'view-argument view-argument-'.$field };
 
                 render_param(
                     $update => $field,
@@ -32,12 +75,22 @@ template 'view' => sub {
                 );
             };
         }
+
     };
 
     div {
         { class is "controls" };
 
         show ('./view_item_controls', $record, $update);
+    };
+
+    div {
+        { class is 'view-argument stock-number' };
+        render_region(
+            name => "stock_numbers_for_" . $record->id,
+            path => "/commodity/view_stock_numbers",
+            args => { id => $record->id }
+        );
     }
 
     hr {};
@@ -86,5 +139,29 @@ template "pic" => sub {
     Jifty->handler->apache->content_type("image/png");
     outs_raw($record->pic);
 };
+
+template 'update' => sub {
+    my $self = shift;
+    my ( $object_type, $id ) = ( $self->object_type, get('id') );
+
+    my $record_class = $self->record_class;
+    my $record = $record_class->new();
+    $record->load($id);
+    my $update = $record->as_update_action(
+        moniker => "update-" . Jifty->web->serial,
+    );
+
+    div {
+        { class is "crud update item inline " . $object_type }
+
+        show('./edit_item', $update);
+
+        show('./edit_item_controls', $record, $update);
+
+        hr {};
+    };
+
+};
+
 
 1;
