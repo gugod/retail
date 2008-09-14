@@ -268,7 +268,10 @@ div.form_field label.label, div.form_field span.label {
 }
 
 .view-argument.stock-number {
-
+    background: #eef;
+    padding: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 .view-argument.stock-number .form_field {
