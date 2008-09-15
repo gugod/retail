@@ -129,7 +129,7 @@ msgstr "請選擇消費者"
 
 #: lib/Retail/View.pm:45
 msgid "Please choose a provider."
-msgstr "請選則供應商"
+msgstr "請選擇供應商"
 
 #: lib/Retail/Model/SaleCommodity.pm:19 lib/Retail/Model/SupplyCommodity.pm:21 lib/Retail/View/Consumer.pm:65 lib/Retail/View/Provider.pm:82
 msgid "Price"
