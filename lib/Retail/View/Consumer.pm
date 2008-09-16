@@ -55,7 +55,8 @@ template 'sale' => page {
 
     };
     table {
-        class is "list ";
+        { class is "list" };
+
         my $c = SaleCommodityCollection;
         $c->limit(column => "sale", value  => $sale);
 

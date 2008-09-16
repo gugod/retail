@@ -13,10 +13,10 @@ sub record_type { "Provider" }
 template "supply" => page {
     my ($supply, $provider) = get qw(supply provider);
 
-    title is _('Supply from %1', $provider->name);
+    { title is _('Supply from %1', $provider->name) };
 
     div {
-        class is "controls clearfix";
+        { class is "controls clearfix" };
 
         form {
             render_action($supply->as_delete_action);
@@ -45,7 +45,8 @@ template "supply" => page {
 
         form {
             div {
-                class is "submit_button";
+                { class is "submit_button" };
+
                 tangent(
                     label => _("Manage Commodities"),
                     as_button => 1,
@@ -58,7 +59,7 @@ template "supply" => page {
     };
 
     div {
-        class is "inline crud create item";
+        { class is "inline crud create item" };
 
         form {
             my $action = new_action(class => "CreateSupplyCommodity");
@@ -86,7 +87,8 @@ template "supply" => page {
         while (my $item = $c->next) {
            row {
                cell {
-                   class is "controls";
+                   { class is "controls" };
+
                    form {
                        render_action($item->as_delete_action);
                        form_submit(
@@ -101,7 +103,8 @@ template "supply" => page {
                    outs_raw image_to_commodity($item->commodity);
 
                    span {
-                       class is "commodity name";
+                       { class is "commodity name" };
+
                        $item->commodity->name
                    };
                };
