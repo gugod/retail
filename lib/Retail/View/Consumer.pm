@@ -61,6 +61,7 @@ template 'sale' => page {
         $c->limit(column => "sale", value  => $sale);
 
         row {
+            cell { _("Delete") };
             cell { _("Name") };
             cell { _("Quantity") };
             cell { _("Price") };
@@ -68,6 +69,18 @@ template 'sale' => page {
         };
         while (my $item = $c->next) {
            row {
+               cell {
+                   { class is "controls" };
+                   form {
+                       render_action($item->as_delete_action);
+                       form_submit(
+                           label => _("Delete"),
+                           onclick => {
+                               confirm => _("Are you sure ?")
+                           }
+                       );
+                   };
+               };
                cell {
                    outs_raw image_to_commodity($item->commodity);
 
