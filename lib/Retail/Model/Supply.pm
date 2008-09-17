@@ -28,5 +28,18 @@ sub before_delete {
     return 1;
 }
 
+sub summary {
+    my ($self) = @_;
+    my %summary;
+    my $commodities = $self->commodities;
+    while(my $record = $commodities->next) {
+        $summary{"Subtotal (" . $record->currency . ")"}
+            += $record->price * $record->quantity;
+    }
+    $summary{Tax} = 0;
+
+    return %summary
+}
+
 1;
 

@@ -98,20 +98,13 @@ template '/supply/view' => page {
                 cell { $r->currency };
             };
         }
-
-        with(class => "summary"), row {
-            with(colspan => 4, class => "key"), cell { _("Subtotal") };
-            with(class => "value"), cell { 1337 };
-        };
-        with(class => "summary"), row {
-            with(colspan => 4, class => "key"), cell { _("Tax") };
-            with(class => "value"), cell { 1337 };
-        };
-        with(class => "summary"), row {
-            with(colspan => 4, class => "key"), cell { _("Total") };
-            with(class => "value"), cell { 26614 };
-        };
-
+        my %summary = $record->summary;
+        for(sort keys %summary) {
+            with(class => "summary"), row {
+                with(colspan => 4, class => "key"), cell { _($_) };
+                with(class => "value"), cell { $summary{$_} };
+            };
+        }
     };
 };
 
