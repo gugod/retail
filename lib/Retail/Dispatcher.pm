@@ -72,5 +72,12 @@ on GET '/commodity/id/#/pic' => run {
     show "/commodity/pic";
 };
 
+on '/supply/#' => run {
+    set id => $1;
+    set supply => Supply($1);
+
+    show '/supply/view';
+};
+
 1;
 

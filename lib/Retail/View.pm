@@ -53,6 +53,9 @@ template '/supply' => page { title => _("Supply") } content {
 };
 
 template '/supply/history' => page {
+    title => _("Supply History")
+} content {
+
     my $c = SupplyCollection(draft => 0);
     div {
         { class is "supply history" };
@@ -60,11 +63,55 @@ template '/supply/history' => page {
         ul {
             while (my $supply = $c->next) {
                 li {
-                    span { outs($supply->id); };
-                    span { outs($supply->provider->name) };
+                    hyperlink(
+                        url => "/supply/" . $supply->id,
+                        label => _(
+                            'Ticket number %1, supply from %2',
+                            $supply->id,
+                            $supply->provider->name
+                        )
+                    );
                 };
             }
+        };
+    };
+};
+
+template '/supply/view' => page {
+    my $record = get("supply");
+    with(class => "supply view"), table {
+        my $commodities = $record->commodities;
+        row {
+            cell { _("Name") };
+            cell { _("Quantity") };
+            cell { _("Price") };
+            cell { _("Retail Price") };
+            cell { _("Currency") };
+        };
+
+        while(my $r = $commodities->next) {
+            with(class => "supply commodity view"), row {
+                cell { $r->commodity->name };
+                cell { $r->quantity };
+                cell { $r->price };
+                cell { $r->retail_price };
+                cell { $r->currency };
+            };
         }
+
+        with(class => "summary"), row {
+            with(colspan => 4, class => "key"), cell { _("Subtotal") };
+            with(class => "value"), cell { 1337 };
+        };
+        with(class => "summary"), row {
+            with(colspan => 4, class => "key"), cell { _("Tax") };
+            with(class => "value"), cell { 1337 };
+        };
+        with(class => "summary"), row {
+            with(colspan => 4, class => "key"), cell { _("Total") };
+            with(class => "value"), cell { 26614 };
+        };
+
     };
 };
 

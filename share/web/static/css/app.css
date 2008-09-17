@@ -277,3 +277,36 @@ div.form_field label.label, div.form_field span.label {
 .view-argument.stock-number .form_field {
     width: auto;
 }
+
+table.view {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 120%;
+}
+
+table.view td {
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+table.view tr:last-child,
+table.view tr:first-child {
+    background: #ccf;
+}
+table.view tr:first-child td {
+    font-weight: bold;
+}
+table.view tr:nth-child(2n+3) {
+    background: #eef;
+}
+table.view tr.summary {
+    background: #eef;
+}
+
+table.view td.key {
+    text-align: right;
+    font-weight: bold;
+}
+
+
