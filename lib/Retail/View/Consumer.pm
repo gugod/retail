@@ -47,6 +47,8 @@ template 'sale' => page {
             my $action = $sale->as_update_action;
             $action->hidden(draft => 0);
             $action->hidden('consumer');
+            $action->hidden('happened_on');
+
             render_action($action);
             form_next_page(url => "/");
             form_submit(
