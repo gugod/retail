@@ -2,6 +2,7 @@ package Retail::View;
 use strict;
 use warnings;
 use utf8;
+
 use Jifty::View::Declare -base;
 use Jifty::View::Declare::CRUD;
 
@@ -18,10 +19,11 @@ alias Jifty::View::Declare::CRUD under "/provider_commodity", {
 
 alias Retail::View::Stock under "/stock";
 
-
-# For some reason 'use JiftyX::ModelHelpers' break the alias statement above.
-require JiftyX::ModelHelpers;
-JiftyX::ModelHelpers->import();
+# For some reason 'use JiftyX::ModelHelpers' break alias statements
+unless (__PACKAGE__->can("Commodity")) {
+    require JiftyX::ModelHelpers;
+    JiftyX::ModelHelpers->import();
+}
 
 template '/' => page {
     div {

@@ -15,6 +15,12 @@ use Retail::Record schema {
     column commodities =>
         references Retail::Model::SaleCommodityCollection by 'sale';
 
+    column happened_on =>
+        since '0.0.2',
+        label is _("Date"),
+        hints is _("The actual date which this sale order was issued."),
+        type is 'date',
+        render_as "Date";
 };
 
 sub before_delete {

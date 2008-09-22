@@ -16,6 +16,21 @@ template "supply" => page {
     { title is _('Supply from %1', $provider->name) };
 
     div {
+        { class is "supply update" };
+
+        h3 { outs _("Update This Supply Ticket."); };
+        form {
+            my $action = $supply->as_update_action;
+            $action->hidden(draft => 1);
+            $action->hidden(provider => $supply->provider->id);
+
+            render_action($action);
+
+            form_submit( label => _("Save" ) );
+        };
+    };
+
+    div {
         { class is "controls clearfix" };
 
         form {
@@ -31,6 +46,7 @@ template "supply" => page {
         form {
             my $action = $supply->as_update_action;
             $action->hidden(draft => 0);
+            $action->hidden('happened_on');
             $action->hidden(provider => $supply->provider->id);
 
             render_action($action);

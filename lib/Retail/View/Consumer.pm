@@ -16,6 +16,21 @@ template 'sale' => page {
     title is _('Sell to %1', $consumer->name);
 
     div {
+        { class is "sale update" };
+
+        h3 { outs _("Update This Sale Ticket."); };
+        form {
+            my $action = $sale->as_update_action;
+            $action->hidden(draft => 1);
+            $action->hidden(consumer => $sale->consumer->id);
+
+            render_action($action);
+
+            form_submit( label => _("Save" ) );
+        };
+    };
+
+    div {
         class is "controls clearfix";
 
         form {

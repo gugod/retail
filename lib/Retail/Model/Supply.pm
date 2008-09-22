@@ -17,6 +17,13 @@ use Retail::Record schema {
         type is 'integer',
         references Retail::Model::SupplyCommodityCollection by 'supply';
 
+    column happened_on =>
+        since '0.0.2',
+        label is _("Date"),
+        hints is _("The actual date which this supply order was issued."),
+        type is 'date',
+        render_as "Date";
+
 };
 
 sub before_delete {

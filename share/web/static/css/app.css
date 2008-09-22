@@ -310,3 +310,18 @@ table.view td.key {
 }
 
 
+.update {
+    background: #cfc;
+    padding: 1em;
+}
+
+.update .form_field {
+    margin: 0.5em 1em;
+}
+
+.update .form_field .label {
+    font-size: 120%;
+    font-family: italic;
+}
+
+

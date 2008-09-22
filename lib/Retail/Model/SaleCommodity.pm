@@ -11,7 +11,7 @@ use Retail::Record schema {
 
     column commodity =>
         type is 'integer',
-        label is _("Commodiy"),
+        label is _("Commodity"),
         references Retail::Model::Commodity;
 
     column quantity =>
