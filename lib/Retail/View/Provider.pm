@@ -16,7 +16,7 @@ template "supply" => page {
     { title is _('Supply from %1', $provider->name) };
 
     div {
-        { class is "supply update" };
+        { class is "supply update clearfix" };
 
         h3 { outs _("Update This Supply Ticket."); };
         form {
@@ -28,46 +28,36 @@ template "supply" => page {
 
             form_submit( label => _("Save" ) );
         };
-    };
 
-    div {
-        { class is "controls clearfix" };
+        div {
+            { class is "finish" };
+            form {
+                my $action = $supply->as_update_action;
+                $action->hidden(draft => 0);
+                $action->hidden('happened_on' => $supply->happened_on);
+                $action->hidden('tax_rate'    => $supply->tax_rate);
+                $action->hidden(provider => $supply->provider->id);
 
-        form {
-            render_action($supply->as_delete_action);
-            form_submit(
-                label => _("Discard"),
-                onclick => {
-                    confirm => _("This supply ticket will be removed cannot be reverted. Are you sure ?")
-                }
-            );
+                render_action($action);
+                form_next_page(url => "/supply/history");
+                form_submit(
+                    label => _("Finish"),
+                    onclick => {
+                        confirm => _("Save this ticket will make it not-editable again. Are you sure ?")
+                    }
+                );
+            };
         };
 
-        form {
-            my $action = $supply->as_update_action;
-            $action->hidden(draft => 0);
-            $action->hidden('happened_on');
-            $action->hidden(provider => $supply->provider->id);
-
-            render_action($action);
-            form_next_page(url => "/");
-            form_submit(
-                label => _("Finish"),
-                onclick => {
-                    confirm => _("Save this ticket will make it not-editable again. Are you sure ?")
-                }
-            );
-        };
-
-        form {
-            div {
-                { class is "submit_button" };
-
-                tangent(
-                    label => _("Manage Commodities"),
-                    as_button => 1,
-                    url => "/stock",
-                    tooltip => _("Go add a new commodity if you don't see it in here")
+        div {
+            { class is "discard" };
+            form {
+                render_action($supply->as_delete_action);
+                form_submit(
+                    label => _("Discard"),
+                    onclick => {
+                        confirm => _("This supply ticket will be removed cannot be reverted. Are you sure ?")
+                    }
                 );
             };
         };

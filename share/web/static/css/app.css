@@ -319,9 +319,37 @@ table.view td.key {
     margin: 0.5em 1em;
 }
 
+
+.update .form_field label {
+    width: 120px !important;
+}
+
 .update .form_field .label {
     font-size: 120%;
     font-family: italic;
 }
 
+.update .form_field span {
+    float:none;
+    display: block;
+    margin-left: 130px;
+    color: #33c;
+    font-size: 1em;
+}
 
+.update .finish {
+    margin: 1em 0 0 16%;
+}
+
+.update .discard input, .update .finish input {
+    margin: 0;
+}
+
+.update .discard {
+    margin: -2em 0 0 26%;
+}
+
+.update h3 {
+    margin: 0;
+    border-bottom: 3px double #999;
+}
