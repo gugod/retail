@@ -28,35 +28,38 @@ template 'sale' => page {
 
             form_submit( label => _("Save" ) );
         };
-    };
 
-    div {
-        class is "controls clearfix";
+        div {
+            {class is "finish"};
+            form {
+                my $action = $sale->as_update_action;
+                $action->hidden(draft => 0);
+                $action->hidden('consumer');
+                $action->hidden('happened_on');
 
-        form {
-            render_action($sale->as_delete_action);
-            form_submit(
-                label => _("Discard"),
-                onclick => {
-                    confirm => _("This sale ticket will be removed cannot be reverted. Are you sure ?")
-                }
-            );
+                render_action($action);
+                form_next_page(url => "/");
+                form_submit(
+                    label => _("Done"),
+                    onclick => {
+                        confirm => _("Save this ticket will make it not-editable. Are you sure ?")
+                    }
+                );
+            };
         };
 
-        form {
-            my $action = $sale->as_update_action;
-            $action->hidden(draft => 0);
-            $action->hidden('consumer');
-            $action->hidden('happened_on');
 
-            render_action($action);
-            form_next_page(url => "/");
-            form_submit(
-                label => _("Done"),
-                onclick => {
-                    confirm => _("Save this ticket will make it not-editable. Are you sure ?")
-                }
-            );
+        div {
+            {class is "discard"};
+            form {
+                render_action($sale->as_delete_action);
+                form_submit(
+                    label => _("Discard"),
+                    onclick => {
+                        confirm => _("This sale ticket will be removed cannot be reverted. Are you sure ?")
+                    }
+                );
+            };
         };
     };
 
