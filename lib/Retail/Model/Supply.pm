@@ -59,6 +59,7 @@ sub summary {
     }
 
     $summary{"Tax Rate"} = $self->tax_rate . " %";
+    $summary{"Date"} = $self->happened_on;
 
     return %summary
 }
