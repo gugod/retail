@@ -108,7 +108,7 @@ div#navigation ul.menu li a:hover {
 
 #content {
     width: 950px;
-    margin: 50px auto 0 auto;
+    margin: 16px auto 0 auto;
 }
 
 h1.title {
@@ -309,8 +309,9 @@ table.view td.key {
     font-weight: bold;
 }
 
-
 .update {
+    width: 400px;
+    float: left;
     background: #cfc;
     padding: 1em;
 }
@@ -337,21 +338,27 @@ table.view td.key {
     font-size: 1em;
 }
 
-.update .finish {
-    margin: 1em 0 0 16%;
-}
-
-.update .discard input, .update .finish input {
-    margin: 0;
-}
-
-.update .discard {
-    margin: -2em 0 0 26%;
-}
-
 .update h3 {
     margin: 0;
     border-bottom: 3px double #999;
+}
+
+div.sale.controls,
+div.supply.controls {
+    margin: 0 0 1em 0;
+    width: 135px;
+    float: left;
+}
+div.sale.controls > div,
+div.supply.controls > div {
+    width: 120px;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 1em;
+}
+div.sale.controls div.submit_button,
+div.supply.controls div.submit_button {
+    float: none;
 }
 
 .form_field.argument-quantity input.text,

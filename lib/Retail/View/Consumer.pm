@@ -16,19 +16,7 @@ template 'sale' => page {
     title is _('Sell to %1', $consumer->name);
 
     div {
-        { class is "sale update" };
-
-        h3 { outs _("Update This Sale Ticket."); };
-        form {
-            my $action = $sale->as_update_action;
-            $action->hidden(draft => 1);
-            $action->hidden(consumer => $sale->consumer->id);
-
-            render_action($action);
-
-            form_submit( label => _("Save" ) );
-        };
-
+        { class is "sale controls" };
         div {
             {class is "finish"};
             form {
@@ -64,6 +52,24 @@ template 'sale' => page {
     };
 
     div {
+        { class is "sale update" };
+
+        h3 { outs _("Update This Sale Ticket."); };
+        form {
+            my $action = $sale->as_update_action;
+            $action->hidden(draft => 1);
+            $action->hidden(consumer => $sale->consumer->id);
+
+            render_action($action);
+
+            form_submit( label => _("Save" ) );
+        };
+
+    };
+
+    with(class => "spacer clearfix"), div { " " };
+
+    div {
         class is "inline crud create item";
 
         form {
@@ -74,6 +80,9 @@ template 'sale' => page {
         };
 
     };
+
+    with(class => "spacer clearfix"), div { " " };
+
     table {
         { class is "list" };
 

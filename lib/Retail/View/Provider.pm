@@ -16,19 +16,7 @@ template "supply" => page {
     { title is _('Supply from %1', $provider->name) };
 
     div {
-        { class is "supply update clearfix" };
-
-        h3 { outs _("Update This Supply Ticket."); };
-        form {
-            my $action = $supply->as_update_action;
-            $action->hidden(draft => 1);
-            $action->hidden(provider => $supply->provider->id);
-
-            render_action($action);
-
-            form_submit( label => _("Save" ) );
-        };
-
+        { class is "supply controls" };
         div {
             { class is "finish" };
             form {
@@ -61,8 +49,25 @@ template "supply" => page {
                 );
             };
         };
+    };
+
+    div {
+        { class is "supply update" };
+
+        h3 { outs _("Update This Supply Ticket."); };
+        form {
+            my $action = $supply->as_update_action;
+            $action->hidden(draft => 1);
+            $action->hidden(provider => $supply->provider->id);
+
+            render_action($action);
+
+            form_submit( label => _("Save" ) );
+        };
 
     };
+
+    with(class => "clearfix"), div { " " };
 
     div {
         { class is "inline crud create item" };
