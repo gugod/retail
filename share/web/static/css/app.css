@@ -353,3 +353,9 @@ table.view td.key {
     margin: 0;
     border-bottom: 3px double #999;
 }
+
+.form_field.argument-quantity input.text,
+.form_field.argument-retail_price input.text,
+.form_field.argument-price input.text {
+    width: 6em;
+}
