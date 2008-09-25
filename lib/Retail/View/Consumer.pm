@@ -22,8 +22,8 @@ template 'sale' => page {
             form {
                 my $action = $sale->as_update_action;
                 $action->hidden(draft => 0);
-                $action->hidden('consumer');
-                $action->hidden('happened_on');
+                $action->hidden(consumer => $sale->consumer->id);
+                $action->hidden(happened_on => $sale->happened_on);
 
                 render_action($action);
                 form_next_page(url => "/");
