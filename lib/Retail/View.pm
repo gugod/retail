@@ -59,6 +59,8 @@ template '/supply/history' => page {
 } content {
 
     my $c = SupplyCollection(draft => 0);
+    $c->order_by(column => "id", order => "DES");
+
     div {
         { class is "supply history" };
 
@@ -117,6 +119,30 @@ template '/sale' => page { title => _("Sale") } content {
             name     => "consumer-list",
             path     => "/consumer/list"
         );
+    };
+};
+
+template '/sale/history' => page { title => _("Sale History") } content {
+    my $c = SaleCollection(draft => 0);
+    $c->order_by(column => "id", order => "DES");
+
+    div {
+        { class is "sale history" };
+
+        ul {
+            while (my $record = $c->next) {
+                li {
+                    hyperlink(
+                        url => "/sale/" . $record->id,
+                        label => _(
+                            'Ticket number %1, consumer is %2',
+                            $record->id,
+                            $record->consumer->name
+                        )
+                    );
+                };
+            }
+        };
     };
 };
 
