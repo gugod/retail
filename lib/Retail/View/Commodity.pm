@@ -137,7 +137,21 @@ template "pic" => sub {
     my $id = get("id");
     my $record = Commodity($id);
     Jifty->handler->apache->content_type("image/png");
-    outs_raw($record->pic);
+
+    if($record->pic) {
+        Jifty->log->info("With pic");
+        outs_raw($record->pic);
+        return;
+    }
+
+    Jifty->log->info("No pic. Use blank.png");
+    my $file = Jifty::Util->absolute_path("share/web/static/images/blank.png");
+    Jifty->log->info("File: $file");
+    my $img;
+    open(IMG, "<:raw", $file);
+    read(IMG, $img, 5000);
+    outs_raw($img);
+    close(IMG);
 };
 
 template 'update' => sub {
