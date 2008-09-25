@@ -71,7 +71,7 @@ on '/consumer/#/sale/#' => run {
     show "/consumer/sale";
 };
 
-on GET '/commodity/id/#/pic' => run {
+on GET '/commodity/id/#/pic.png' => run {
     set id => $1;
     show "/commodity/pic";
 };

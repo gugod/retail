@@ -14,7 +14,7 @@ sub supply_from_provider_path {
 
 sub commodity_pic_path {
     my ($record) = @_;
-    return "/commodity/id/" . $record->id . "/pic";
+    return "/commodity/id/" . $record->id . "/pic.png";
 }
 
 sub image_to_commodity {
