@@ -96,35 +96,44 @@ template "supply" => page {
             cell { _("SubTotal") };
         };
         while (my $item = $c->next) {
-           row {
-               cell {
-                   { class is "controls" };
+            row {
+                cell {
+                    { class is "controls" };
 
-                   form {
-                       render_action($item->as_delete_action);
-                       form_submit(
-                           label => _("Delete"),
-                           onclick => {
-                               confirm => _("Are you sure ?")
-                           }
-                       );
-                   }
-               };
-               cell {
-                   outs_raw image_to_commodity($item->commodity);
+                    form {
+                        render_action($item->as_delete_action);
+                        form_submit(
+                            label => _("Delete"),
+                            onclick => {
+                                confirm => _("Are you sure ?")
+                            }
+                        );
+                    }
+                };
+                cell {
+                    outs_raw image_to_commodity($item->commodity);
 
-                   span {
-                       { class is "commodity name" };
+                    span {
+                        { class is "commodity name" };
 
-                       $item->commodity->name
-                   };
-               };
-               cell { $item->quantity };
-               cell { $item->price . " " . $item->currency ; };
-               cell { $item->retail_price . " " . $item->currency; };
-               cell { ($item->quantity * $item->price) . " " . $item->currency };
-           };
-       }
+                        $item->commodity->name
+                    };
+                };
+                cell { $item->quantity };
+                cell { $item->price . " " . $item->currency ; };
+                cell { $item->retail_price . " " . $item->currency; };
+                cell { ($item->quantity * $item->price) . " " . $item->currency };
+            };
+        }
+
+        my %summary = $supply->summary;
+        for (sort keys %summary) {
+            with(class => "summary"), row {
+                cell { " " };
+                with(colspan => 4, class => "key"), cell { _($_) };
+                with(class => "value"), cell { $summary{$_} };
+            };
+        }
     };
 };
 
