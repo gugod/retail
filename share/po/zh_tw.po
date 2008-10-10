@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Retail 2.9\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2008-09-22 18:07+0800\n"
+"PO-Revision-Date: 2008-10-11 00:34+0800\n"
 "Last-Translator: Kang-min Liu <gugod@gugod.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/Retail/View/Commodity.pm:45 lib/Retail/View/Consumer.pm:68 lib/Retail/View/Provider.pm:85
+#: lib/Retail/View/Commodity.pm:45 lib/Retail/View/Consumer.pm:79 lib/Retail/View/Provider.pm:80
 msgid "Add"
 msgstr "新增"
 
@@ -27,7 +27,7 @@ msgstr "地址"
 msgid "Anything special for this consuemr ?"
 msgstr "此消費者有何特別需求嗎？"
 
-#: lib/Retail/View/Commodity.pm:29 lib/Retail/View/Consumer.pm:94 lib/Retail/View/Provider.pm:113
+#: lib/Retail/View/Commodity.pm:29 lib/Retail/View/Consumer.pm:108 lib/Retail/View/Provider.pm:108
 msgid "Are you sure ?"
 msgstr "您確定嗎？"
 
@@ -47,19 +47,19 @@ msgstr "商品"
 msgid "Commodity"
 msgstr "商品"
 
-#: lib/Retail/Model/SaleCommodity.pm:26 lib/Retail/Model/SupplyCommodity.pm:29 lib/Retail/View.pm:91
+#: lib/Retail/Model/SaleCommodity.pm:26 lib/Retail/Model/SupplyCommodity.pm:29 lib/Retail/View.pm:93
 msgid "Currency"
 msgstr "貨幣"
 
-#: lib/Retail/Model/Sale.pm:20 lib/Retail/Model/Supply.pm:22
+#: lib/Retail/Model/Sale.pm:20 lib/Retail/Model/Supply.pm:30
 msgid "Date"
 msgstr "日期"
 
-#: lib/Retail/View/Consumer.pm:79 lib/Retail/View/Consumer.pm:92 lib/Retail/View/Provider.pm:111
+#: lib/Retail/View/Consumer.pm:106 lib/Retail/View/Consumer.pm:93 lib/Retail/View/Provider.pm:106
 msgid "Delete"
 msgstr "刪除"
 
-#: lib/Retail/View/Provider.pm:96
+#: lib/Retail/View/Provider.pm:91
 msgid "Delete?"
 msgstr "刪除？"
 
@@ -67,27 +67,31 @@ msgstr "刪除？"
 msgid "Description"
 msgstr "描述"
 
-#: lib/Retail/View/Consumer.pm:39 lib/Retail/View/Provider.pm:39
+#: lib/Retail/View/Consumer.pm:45 lib/Retail/View/Provider.pm:45
 msgid "Discard"
 msgstr "捨棄"
 
-#: lib/Retail/View/Consumer.pm:53
+#: lib/Retail/View/Consumer.pm:31
 msgid "Done"
 msgstr "結束"
 
-#: lib/Retail/View/Commodity.pm:123 lib/Retail/View/Consumer.pm:130 lib/Retail/View/Provider.pm:151
+#: lib/Retail/View/Commodity.pm:123 lib/Retail/View/Consumer.pm:144 lib/Retail/View/Provider.pm:155
 msgid "Edit"
 msgstr "編輯"
 
-#: lib/Retail/View/Provider.pm:55
+#: lib/Retail/View/Provider.pm:32
 msgid "Finish"
 msgstr "結束"
 
-#: lib/Retail/View/Provider.pm:70
+#: lib/Retail/Model/Supply.pm:24
+msgid "From 0 to 100."
+msgstr "從 0 到 100"
+
+#:
 msgid "Go add a new commodity if you don't see it in here"
 msgstr "如果沒看見商品的話，請點擊此前去增加新的商品。"
 
-#: lib/Retail/Dispatcher.pm:15
+#: lib/Retail/Dispatcher.pm:31 lib/Retail/Dispatcher.pm:34
 msgid "History"
 msgstr "歷史記錄"
 
@@ -99,7 +103,7 @@ msgstr "庫存"
 msgid "In stock"
 msgstr "庫存"
 
-#: lib/Retail/View/Provider.pm:67
+#:
 msgid "Manage Commodities"
 msgstr "管理商品"
 
@@ -111,7 +115,7 @@ msgstr "管理商品"
 msgid "Memo"
 msgstr "註記"
 
-#: lib/Retail/Model/Commodity.pm:11 lib/Retail/Model/Consumer.pm:10 lib/Retail/Model/Provider.pm:9 lib/Retail/View.pm:87 lib/Retail/View/Consumer.pm:80 lib/Retail/View/Provider.pm:97
+#: lib/Retail/Model/Commodity.pm:11 lib/Retail/Model/Consumer.pm:10 lib/Retail/Model/Provider.pm:9 lib/Retail/View.pm:89 lib/Retail/View/Consumer.pm:94 lib/Retail/View/Provider.pm:92
 msgid "Name"
 msgstr "名稱"
 
@@ -127,7 +131,7 @@ msgstr "照片"
 msgid "Picture and Name"
 msgstr "圖片、名稱"
 
-#: lib/Retail/View.pm:114
+#: lib/Retail/View.pm:116
 msgid "Please choose a consumer."
 msgstr "請選擇消費者"
 
@@ -135,7 +139,7 @@ msgstr "請選擇消費者"
 msgid "Please choose a provider."
 msgstr "請選擇供應商"
 
-#: lib/Retail/Model/SaleCommodity.pm:22 lib/Retail/Model/SupplyCommodity.pm:21 lib/Retail/View.pm:89 lib/Retail/View/Consumer.pm:82 lib/Retail/View/Provider.pm:99
+#: lib/Retail/Model/SaleCommodity.pm:22 lib/Retail/Model/SupplyCommodity.pm:21 lib/Retail/View.pm:91 lib/Retail/View/Consumer.pm:96 lib/Retail/View/Provider.pm:94
 msgid "Price"
 msgstr "價格"
 
@@ -147,31 +151,35 @@ msgstr "提供商"
 msgid "Provider / Stock Number"
 msgstr "提供商 / 貨號"
 
-#: lib/Retail/Model/SaleCommodity.pm:18 lib/Retail/Model/SupplyCommodity.pm:17 lib/Retail/View.pm:88 lib/Retail/View/Consumer.pm:81 lib/Retail/View/Provider.pm:98
+#: lib/Retail/Model/SaleCommodity.pm:18 lib/Retail/Model/SupplyCommodity.pm:17 lib/Retail/View.pm:90 lib/Retail/View/Consumer.pm:95 lib/Retail/View/Provider.pm:93
 msgid "Quantity"
 msgstr "數量"
 
-#: lib/Retail/Model/SupplyCommodity.pm:25 lib/Retail/View.pm:90 lib/Retail/View/Provider.pm:100
+#: lib/Retail/Model/SupplyCommodity.pm:25 lib/Retail/View.pm:92 lib/Retail/View/Provider.pm:95
 msgid "Retail Price"
 msgstr "零售價"
 
-#: lib/Retail/Dispatcher.pm:11 lib/Retail/View.pm:113
+#: lib/Retail/Dispatcher.pm:27 lib/Retail/View.pm:115
 msgid "Sale"
 msgstr "銷貨"
 
-#: lib/Retail/View/Consumer.pm:29 lib/Retail/View/Provider.pm:29
+#: lib/Retail/View.pm:125
+msgid "Sale History"
+msgstr "銷貨歷史記錄"
+
+#: lib/Retail/View/Consumer.pm:65 lib/Retail/View/Provider.pm:65
 msgid "Save"
 msgstr "儲存"
 
-#: lib/Retail/View/Provider.pm:57
+#: lib/Retail/View/Provider.pm:34
 msgid "Save this ticket will make it not-editable again. Are you sure ?"
 msgstr "儲存之後便無法再修改此單據，確定嗎？"
 
-#: lib/Retail/View/Consumer.pm:55
+#: lib/Retail/View/Consumer.pm:33
 msgid "Save this ticket will make it not-editable. Are you sure ?"
 msgstr "儲存之後便無法再修改此單據，確定嗎？"
 
-#: lib/Retail/View/Consumer.pm:122 lib/Retail/View/Consumer.pm:16
+#: lib/Retail/View/Consumer.pm:136 lib/Retail/View/Consumer.pm:16
 #. ($consumer->name)
 #. ($record->name)
 msgid "Sell to %1"
@@ -185,7 +193,7 @@ msgstr "販賣給此消費者"
 msgid "Shipping address"
 msgstr "送貨地址"
 
-#: lib/Retail/Dispatcher.pm:12
+#: lib/Retail/Dispatcher.pm:28
 msgid "Stock"
 msgstr "存貨"
 
@@ -205,11 +213,11 @@ msgstr "貨號"
 msgid "Stockless"
 msgstr "無存貨"
 
-#: lib/Retail/View/Consumer.pm:83 lib/Retail/View/Provider.pm:101
+#: lib/Retail/View/Consumer.pm:97 lib/Retail/View/Provider.pm:96
 msgid "SubTotal"
 msgstr "小記"
 
-#: lib/Retail/Dispatcher.pm:10 lib/Retail/View.pm:46
+#: lib/Retail/Dispatcher.pm:26 lib/Retail/View.pm:46
 msgid "Supply"
 msgstr "進貨"
 
@@ -222,7 +230,7 @@ msgstr "進貨歷史記錄"
 msgid "Supply from %1"
 msgstr "自%1進貨"
 
-#: lib/Retail/View/Provider.pm:143
+#: lib/Retail/View/Provider.pm:147
 msgid "Supply from here"
 msgstr "自此處進貨"
 
@@ -230,23 +238,36 @@ msgstr "自此處進貨"
 msgid "Supply » Please choose a provider."
 msgstr "進貨 » 請選擇供應商"
 
+#: lib/Retail/Model/Supply.pm:23
+msgid "Tax rate"
+msgstr "稅率"
+
+#: lib/Retail/Model/Supply.pm:69
+msgid "Tax rate can only be non-negative numbers."
+msgstr "稅率不能為負數"
+
 #: lib/Retail/Model/Sale.pm:21
 msgid "The actual date which this sale order was issued."
 msgstr "此銷貨事實發生之實際日期"
 
-#: lib/Retail/Model/Supply.pm:23
+#: lib/Retail/Model/Supply.pm:31
 msgid "The actual date which this supply order was issued."
 msgstr "此進貨事實發生之實際日期"
 
-#: lib/Retail/View/Consumer.pm:41
+#: lib/Retail/View/Consumer.pm:47
 msgid "This sale ticket will be removed cannot be reverted. Are you sure ?"
 msgstr "此單據將會被永久刪除並且無法回復。確定嗎？"
 
-#: lib/Retail/View/Provider.pm:41
+#: lib/Retail/View/Provider.pm:47
 msgid "This supply ticket will be removed cannot be reverted. Are you sure ?"
 msgstr "此單據將會被永久刪除並且無法回復。確定嗎？"
 
-#: lib/Retail/View.pm:74
+#: lib/Retail/View.pm:141
+#. ($record->id,                            $record->consumer->name)
+msgid "Ticket number %1, consumer is %2"
+msgstr "單劇流水號 %1，消費者為 %2"
+
+#: lib/Retail/View.pm:76
 #. ($supply->id,                            $supply->provider->name)
 msgid "Ticket number %1, supply from %2"
 msgstr "自 %2 進貨，單據編號 %1"
@@ -255,11 +276,11 @@ msgstr "自 %2 進貨，單據編號 %1"
 msgid "Toggle new item"
 msgstr "切換新增項目畫面"
 
-#: lib/Retail/View/Consumer.pm:21
+#: lib/Retail/View/Consumer.pm:57
 msgid "Update This Sale Ticket."
 msgstr "更改此銷貨單據"
 
-#: lib/Retail/View/Provider.pm:21
+#: lib/Retail/View/Provider.pm:57
 msgid "Update This Supply Ticket."
 msgstr "更改此進貨單據"
 
