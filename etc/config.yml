@@ -1,12 +1,15 @@
---- 
-framework: 
+---
+application:
+  OpenIDSecret: v03j1k9fp09zuvoj2o3jrasd8oxzjcvk3
+
+framework:
   SiteConfig: etc/site_config.yml
   AdminMode: 0
   ApplicationClass: Retail
   ApplicationName: Retail
   ApplicationUUID: 7BA46032-74DB-11DD-A027-AFC80B18BD64
   ConfigFileVersion: 4
-  Database: 
+  Database:
     AutoUpgrade: 1
     CheckSchema: 1
     Database: retail
@@ -15,7 +18,7 @@ framework:
     Password: ''
     RecordBaseClass: Jifty::DBI::Record::Cachable
     User: ''
-    Version: 0.0.2
+    Version: 0.0.3
   DevelMode: 1
   L10N:
     PoDir: share/po
@@ -33,30 +36,34 @@ framework:
     - SkeletonApp: {}
     # - REST: {}
     # - Halo: {}
-    - ErrorTemplates: {}
+    # - ErrorTemplates: {}
     # - OnlineDocs: {}
     - CompressedCSSandJS: {}
     # - AdminUI: {}
+    - LetMe: {}
+    - User: {}
+    - OpenID: {}
 
-  PubSub: 
+  PubSub:
     Backend: Memcached
     Enable: ~
-  SkipAccessControl: 1
+  SkipAccessControl: 0
   TemplateClass: Retail::View
-  View: 
+  View:
     FallbackHandler: Jifty::View::Mason::Handler
-    Handlers: 
+    Handlers:
       - Jifty::View::Static::Handler
       - Jifty::View::Declare::Handler
       - Jifty::View::Mason::Handler
-  Web: 
-    SessionClass: Jifty::Web::Session::ClientSide
-    SessionSecret: '9jv3$9*!ufz239#$^'
+  Web:
+    # ServerClass: Jifty::Server::Fork
+    # SessionClass: Jifty::Web::Session::ClientSide
+    # SessionSecret: '9jv3$9*!ufz239#$^'
     BaseURL: http://localhost
     DataDir: var/mason
     Globals: []
 
-    MasonConfig: 
+    MasonConfig:
       autoflush: 0
       default_escape_flags: h
       error_format: text

@@ -103,7 +103,14 @@ div#navigation ul.menu li a:hover {
 }
 
 #salutation {
-    display: none;
+    display:block;
+    position: absolute;
+    top: 0.5em;
+    right: 0em;
+    width: 240px;
+    color:red;
+    font-size: 1.5em;
+    line-height: 1.5em;
 }
 
 #content {

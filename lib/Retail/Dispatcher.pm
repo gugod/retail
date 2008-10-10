@@ -6,6 +6,22 @@ use Jifty::Dispatcher -base;
 use JiftyX::ModelHelpers;
 
 before '*' => run {
+    my $cu = Jifty->web->current_user;
+
+    unless($cu->id || $1 eq 'openid') {
+        redirect "/openid/login";
+        return;
+    }
+
+    unless(
+        $1 eq 'openid' ||
+        $cu->id &&
+        $cu->user_object->is_admin
+    ) {
+        abort 403;
+        return;
+    }
+
     my $menu = Jifty->web->navigation;
     $menu->child(supply => label => _("Supply"), url => "/supply");
     $menu->child(sale => label => _("Sale"), url => "/sale");
