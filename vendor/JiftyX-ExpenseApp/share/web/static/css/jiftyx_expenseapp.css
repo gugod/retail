@@ -1,0 +1,46 @@
+/*
+ * All rules in this files should be have '.expenseapp' in the beginning.
+ */
+
+.expenseapp .create {
+    background: #ffc;
+    margin: 5px 0;
+    padding: 12px;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.expenseapp table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.expenseapp table th {
+    padding: 5px;
+    background: #fcc;
+    border: 1px solid #999;
+}
+
+.expenseapp table td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #999;
+}
+
+.expenseapp table tr:nth-child(2n) {
+    background: #ccf;
+}
+
+.expenseapp .expense.record.delete.action {
+    text-decoration: none;
+    color:#555;
+}
+
+.expenseapp .expense.record.delete.action:hover {
+    color: #f00;
+}
+
+.expenseapp .summary table {
+    width: 100%;
+}

@@ -1,55 +1,46 @@
 ---
-application:
-  OpenIDSecret: v03j1k9fp09zuvoj2o3jrasd8oxzjcvk3
-
 framework:
-  SiteConfig: etc/site_config.yml
   AdminMode: 0
-  ApplicationClass: Retail
-  ApplicationName: Retail
-  ApplicationUUID: 7BA46032-74DB-11DD-A027-AFC80B18BD64
+  ApplicationClass: Withusers
+  ApplicationName: Withusers
+  ApplicationUUID: 22F6B93E-95E3-11DD-9360-E87BFF7AA801
   ConfigFileVersion: 4
   Database:
     AutoUpgrade: 1
     CheckSchema: 1
-    Database: retail
+    Database: withusers
     Driver: SQLite
     Host: localhost
     Password: ''
     RecordBaseClass: Jifty::DBI::Record::Cachable
     User: ''
-    Version: 0.0.3
+    Version: 0.0.1
   DevelMode: 1
   L10N:
     PoDir: share/po
-    AllowedLang:
-      - en
-      - zh_tw
   LogLevel: INFO
   Mailer: Sendmail
   MailerArgs: []
 
   Plugins:
-    # - SinglePage: {}
-    - I18N: {}
+    - ExpenseApp: {}
+    - User: {}
+    - Authentication::Password:
+        login_by: email
     - LetMe: {}
     - SkeletonApp: {}
-    # - REST: {}
-    # - Halo: {}
-    # - ErrorTemplates: {}
-    # - OnlineDocs: {}
+    - REST: {}
+    - Halo: {}
+    - ErrorTemplates: {}
+    - OnlineDocs: {}
     - CompressedCSSandJS: {}
-    # - AdminUI: {}
-    - LetMe: {}
-    - User: {}
-    - OpenID: {}
-    - ExpenseApp: {}
+    - AdminUI: {}
 
   PubSub:
     Backend: Memcached
     Enable: ~
   SkipAccessControl: 0
-  TemplateClass: Retail::View
+  TemplateClass: Withusers::View
   View:
     FallbackHandler: Jifty::View::Mason::Handler
     Handlers:
@@ -57,9 +48,6 @@ framework:
       - Jifty::View::Declare::Handler
       - Jifty::View::Mason::Handler
   Web:
-    # ServerClass: Jifty::Server::Fork
-    # SessionClass: Jifty::Web::Session::ClientSide
-    # SessionSecret: '9jv3$9*!ufz239#$^'
     BaseURL: http://localhost
     DataDir: var/mason
     Globals: []

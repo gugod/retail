@@ -1,0 +1,56 @@
+-*- outline -*-
+
+^ JiftyX::ExpenseApp
+
+^^ Description
+
+A embeded-app that can be easily (with very minium coding work)
+embeded to any Jifty Apps.
+
+^^ Function
+
+Provide user-based expenses tracking. Login users can input their
+expense records and view statistics.
+
+If the app does not have user in their logic, should just work and all
+expenses are simply globally shared.
+
+^^ Require
+
+- App has an "User" model
+- App has an "Expense" model
+  - Just mixin JiftyX::ExpenseApp::Model::Expense
+
+^^ Provide
+
+- Working Expesnes app under URL /=/x/expenses
+
+^^ Tech
+
+- Expense Model
+
+(internally) has a: id, created_at, created_by (stores current_user->id)
+has a: date, account, amount, category (autocompleted text), note
+
+- User Model
+
+has many expenses
+
+- Views
+
+/=/x/expenses:
+
+- expense input for current user
+- 10 recent expenses
+- pager for older/newer expense records
+- (would it be more friendly to track expenses with twitterish interface ?)
+
+/=/x/expenses/reports
+
+- tablur reports of expenses
+
+- Classes
+
+  - JiftyX::ExpneseApp::Model::Expense
+  - Jifty::Plugin::ExpenseApp
+
