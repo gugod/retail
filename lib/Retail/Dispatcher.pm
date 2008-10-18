@@ -8,13 +8,14 @@ use JiftyX::ModelHelpers;
 before '*' => run {
     my $cu = Jifty->web->current_user;
 
-    unless($cu->id || $1 eq 'openid') {
+    unless($cu->id || $1 eq 'openid' || $1 eq '__jifty') {
         redirect "/openid/login";
         return;
     }
 
     unless(
         $1 eq 'openid' ||
+        $1 eq '__jifty' ||
         $cu->id &&
         $cu->user_object->is_admin
     ) {
