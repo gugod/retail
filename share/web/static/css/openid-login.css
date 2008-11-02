@@ -1,0 +1,21 @@
+#openid-login {
+    width: 480px;
+    position: relative;
+    margin-top: 1em;
+    font-size: 2em;
+    -webkit-border-radius: 5px;
+    padding: 16px;
+    border: 5px solid #eee;
+}
+
+#openid-login form input.text {
+    width: 460px;
+    font-size: 1.36em;
+    padding: 5px 10px;
+}
+
+
+#openid-login form input.button {
+    font-size: 2em;
+}
+

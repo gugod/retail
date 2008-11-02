@@ -1,5 +1,7 @@
 @import url(jiftyx_expenseapp.css);
 
+@import url(openid-login.css);
+
 .jifty.results.messages {
     float:left;
     width: 100%;
@@ -375,3 +377,4 @@ div.supply.controls div.submit_button {
 .form_field.argument-price input.text {
     width: 6em;
 }
+
