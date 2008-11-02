@@ -32,6 +32,25 @@ sub before_delete {
     return 1;
 }
 
+sub summary {
+    my ($self) = @_;
+    my %summary;
+    my $commodities = $self->commodities;
+    my %subtotal;
+
+    while(my $record = $commodities->next) {
+        ($subtotal{$record->currency} ||=0) += $record->price * $record->quantity;
+    }
+
+    for (keys %subtotal) {
+        $summary{"Subtotal ($_)"} = $subtotal{$_};
+    }
+
+    $summary{"Date"} = $self->happened_on;
+
+    return %summary
+
+}
 
 1;
 

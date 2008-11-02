@@ -100,5 +100,12 @@ on '/supply/#' => run {
     show '/supply/view';
 };
 
+on '/sale/#' => run {
+    set id => $1;
+    set sale => Sale($1);
+
+    show '/sale/view';
+};
+
 1;
 

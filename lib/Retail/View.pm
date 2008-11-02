@@ -122,6 +122,35 @@ template '/sale' => page { title => _("Sale") } content {
     };
 };
 
+template '/sale/view' => page {
+    my $record = get("sale");
+    with(class => "sale view"), table {
+        my $commodities = $record->commodities;
+        row {
+            cell { _("Name") };
+            cell { _("Quantity") };
+            cell { _("Price") };
+            cell { _("Currency") };
+        };
+
+        while(my $r = $commodities->next) {
+            with(class => "sale commodity view"), row {
+                cell { $r->commodity->name };
+                cell { $r->quantity };
+                cell { $r->price };
+                cell { $r->currency };
+            };
+        }
+        my %summary = $record->summary;
+        for(sort keys %summary) {
+            with(class => "summary"), row {
+                with(colspan => 3, class => "key"), cell { _($_) };
+                with(class => "value"), cell { $summary{$_} };
+            };
+        }
+    };
+};
+
 template '/sale/history' => page { title => _("Sale History") } content {
     my $c = SaleCollection(draft => 0);
     $c->order_by(column => "id", order => "DES");
